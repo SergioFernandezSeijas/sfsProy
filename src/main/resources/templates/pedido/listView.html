@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  <main class="pedido">
+    <h1>Listado de pedidos del usuario</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Fecha</th>
+          <th>Importe</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="pedido : ${listarPedidos}">
+          <td th:text="${pedido.id}">ID</td>
+          <td th:text="${pedido.fecha}">Fecha</td>
+          <td th:text="${pedido.importe}">€</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

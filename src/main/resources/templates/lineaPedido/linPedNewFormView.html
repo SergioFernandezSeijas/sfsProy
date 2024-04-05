@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="newLinea">
+    <h1>Pedido/Producto Nueva relación</h1>
+    <form method="post" action="#" th:action="@{/lineaPedido/nuevo/submit}" th:object="${lineaPedidoForm}">
+      Pedido:<br />
+      <select name="list1" th:field="*{pedido}">
+        <option value="0">select option</option>
+        <option th:each="pedido:${listaPedidos}" th:value="${pedido.id}" th:text="${pedido.id}"></option>
+      </select><br />
+      Producto:<br />
+      <select name="list2" th:field="*{producto}">
+        <option value="0">select option</option>
+        <option th:each="producto:${listaProductos}" th:value="${producto.id}" th:text="${producto.nombre}"></option>
+      </select><br />
+      <label>Cantidad:<input type="number" id="cantidad" th:field="*{cantidad}" /></label><br />
+      <input type="submit" value="Enviar" />
+    </form>
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

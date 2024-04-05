@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <title>GUAU</title>
+  </head>
+
+  <body>
+    <header th:replace="~{/fragment.html::cabecera}"></header>
+    <main class="adopta">
+      <h2>Lugares de adopción</h2>
+      <form
+        action="#"
+        method="post"
+        th:action="@{/adopta/}"
+        th:object="${formInfo}"
+      >
+        <select onchange="this.form.submit()" th:field="*{provincia}">
+          <option value="">selecciona una provincia...</option>
+          <option
+            th:each="adopta:${listaAdopta}"
+            th:value="${adopta}"
+            th:text="${adopta}"
+          ></option>
+        </select>
+      </form>
+      Provincia:
+      <span
+        th:if="${lugarSeleccionado}"
+        th:text="${lugarSeleccionado.provincia}"
+      ></span
+      ><br />
+      Nombre:
+      <span
+        th:if="${lugarSeleccionado}"
+        th:text="${lugarSeleccionado.nombre}"
+      ></span
+      ><br />
+      Ubicación:
+      <a
+        th:if="${lugarSeleccionado}"
+        th:href="${lugarSeleccionado.ubicacion}"
+        target="_blank"
+      >Accede al lugar</a
+      ><br />
+      Contacto:
+      <span
+        th:if="${lugarSeleccionado}"
+        th:text="${lugarSeleccionado.contacto}"
+      ></span
+      ><br />
+      Horario:
+      <span
+        th:if="${lugarSeleccionado}"
+        th:text="${lugarSeleccionado.horario}"
+      ></span
+      ><br />
+      Url:
+      <a
+        th:if="${lugarSeleccionado}"
+        th:href="${lugarSeleccionado.url}"
+        target="_blank"
+      >Enlace al sitio web</a
+      ><br />
+    </main>
+    <footer>
+        <div class="final">
+          <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+    
+          <div>
+            <p id="redes">
+              <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
+              <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter"/></a>
+              <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram"/></a>
+              <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube"/></a>
+              <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok"/></a>
+            </p>
+          </div>
+    
+          <p>
+            <a href="https://www.boe.es/eli/es/l/2023/03/28/7" class="enlFinal">Ley de Bienestar Animal</a>
+          </p>
+          <p><a href="" class="enlFinal">Ayuda</a></p>
+          <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+          <p th:text="${anhoActual}"></p>
+        </div>
+      </footer>
+      <script>
+        function toggleMenu() {
+          var nav = document.querySelector("nav ul");
+          nav.classList.toggle("open");
+        }
+      </script>
+  </body>
+</html>

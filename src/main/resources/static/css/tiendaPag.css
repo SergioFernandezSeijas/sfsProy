@@ -1,0 +1,86 @@
+.tienda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 68vh;
+  margin-top: 22vh;
+}
+
+.fotosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fotosContainer p {
+  font-size: 20px;
+}
+
+.fotosTienda {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+.imagen {
+  display: block;
+  text-align: center;
+  border: 1px solid black;
+  margin-left: 45px; 
+  margin-right: 45px;
+  padding: 5px;
+  border-radius: 7%;
+}
+
+.imagen img {
+  height: auto;
+  width: 200px;
+}
+
+.imagen-noanimada {
+  display: block;
+  text-align: center;
+  border: 1px solid black;
+  margin-left: 45px; 
+  margin-right: 45px;
+  padding: 5px;
+  border-radius: 7%;
+}
+
+.imagen-noanimada img {
+  height: auto;
+  width: 200px;
+}
+
+
+.finalTienda {
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 2%;
+  background-color: lightslategray;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+div.finalTienda p {
+  margin: 10px 50px 10px 50px;
+}
+
+div.finalTienda div {
+  display: block;
+}
+
+
+@media only screen and (max-width: 700px) {
+  div#collar {
+    margin-top: 9vh;
+  }
+
+  div.imagen{
+    margin-top: 8px;
+  }
+}

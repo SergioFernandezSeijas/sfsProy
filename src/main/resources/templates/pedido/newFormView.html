@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  <main class="newPedido">
+    <h1>Nuevo pedido</h1>
+    <form method="post" action="#" th:action="@{/pedido/nuevo/submit}" th:object="${pedidosForm}">
+      <!-- <label
+        >Usuario
+        <select name="id" th:field="*{usuario}">
+          <option
+            th:each="usuario : ${listaUsuarios}"
+            th:value="${usuario.id}"
+            th:text="${usuario.nombre}"
+          ></option>
+        </select> </label
+      ><br /> -->
+
+      <label>Fecha: <input type="hidden" id="fecha" th:field="*{fecha}" /></label><br />
+
+      <input type="submit" value="Enviar" />
+    </form>
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

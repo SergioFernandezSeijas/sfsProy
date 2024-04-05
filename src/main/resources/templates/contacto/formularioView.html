@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/contacto.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="contacto">
+    <!-- <form action="#" method="post" th:action="@{/contacto/submit}" th:object="${formContacto}">
+    Nombre: <input type="text" th:field="*{nombre}" required><br>
+    Email: <input type="email" th:field="*{email}" required><br>
+    Motivo:
+    <select th:field="*{motivo}">
+      <option value="queja">Queja</option>
+      <option value="consulta">Consulta</option>
+      <option value="otros">Otros</option>
+    </select><br>
+    Comentarios: <br /> <textarea th:field="*{comentarios}" rows="4" cols="50"></textarea><br>
+    Aceptar las condiciones del servicio: <input type="checkbox" th:field="*{aceptarCondiciones}"><br>
+    <input type="submit" value="Enviar"><br />
+  </form> -->
+    <h2>Contacto</h2>
+    <form action="#" method="post" th:action="@{/contacto/submit}" th:object="${formContacto}">
+      Nombre: <input type="text" th:field="*{nombre}" required /><br /><br />
+      Email: <input type="email" th:field="*{email}" required /><br /><br />
+      Motivo:
+      <select th:field="*{motivo}">
+        <option value="queja">Queja</option>
+        <option value="consulta">Consulta</option>
+        <option value="otros">Otros</option>
+      </select><br /><br />
+      Comentarios: <br />
+      <textarea th:field="*{comentarios}" rows="4" cols="50"></textarea><br /><br />
+      Aceptar las condiciones del servicio:
+      <input type="checkbox" th:field="*{aceptarCondiciones}" /><br /><br />
+      <input type="submit" value="Enviar" /><br />
+    </form>
+  </main>
+  <footer>
+    <div class="final">
+      <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+
+      <div>
+        <p id="redes">
+          <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
+          <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter" /></a>
+          <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram" /></a>
+          <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube" /></a>
+          <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok" /></a>
+        </p>
+      </div>
+
+      <p>
+        <a href="https://www.boe.es/eli/es/l/2023/03/28/7" class="enlFinal">Ley de Bienestar Animal</a>
+      </p>
+      <p><a href="" class="enlFinal">Ayuda</a></p>
+      <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+      <p th:text="${anhoActual}"></p>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  <main class="valUsuario">
+    <h1>Listado de productos de un usuario</h1>
+    <h2 th:text="'Usuario: ' + ${usuario.nombre}">Usuario</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Puntuacion</th>
+          <th>Texto</th>
+          <th sec:authorize="hasAnyRole('ADMIN','USUARIO')">Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="valoracion : ${listaValoracion}">
+          <td th:text="${valoracion.producto.id}">Id</td>
+          <td th:text="${valoracion.producto.nombre}">nombre</td>
+          <td th:text="${valoracion.puntuacion}">Puntuacion</td>
+          <td th:text="${valoracion.texto}">Texto</td>
+          <td sec:authorize="hasAnyRole('ADMIN','USUARIO')">
+            <a th:href="@{/valoraciones/borrar/{id}
+(id=${valoracion.id})}">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/valoraciones/nuevo}">Valorar</a><br />
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

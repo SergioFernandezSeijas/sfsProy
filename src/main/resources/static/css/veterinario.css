@@ -1,0 +1,64 @@
+.veterinario {
+    overflow: hidden;
+    min-height: 68vh;
+    margin-top: 22.1vh;
+}
+
+h2 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 80px;
+}
+
+
+table {
+    width: 90%; 
+    margin-left: 5%; 
+    margin-right: 5%; 
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    text-align: center;
+    font-size: 18px;
+    font-family: Verdana;
+  }
+  th {
+    background-color: lightcoral;
+  }
+  tr:nth-child(odd) {
+    background-color: lightblue;
+  }
+  tr:nth-child(even) {
+    background-color: lightpink; 
+  }
+  tr:hover {
+    background-color: goldenrod;
+  }
+
+
+@media only screen and (max-width: 900px) {
+    h2 {
+        margin-top: 70px;
+    }
+
+    table {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    th, td {
+        max-width: 150px;
+        white-space: normal;
+    }
+    th:first-child, td:first-child {
+        max-width: 100px;
+        white-space: normal;
+    }
+}

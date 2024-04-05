@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUAU</title>
+</head>
+
+<body>
+    <h1>Nuevo producto</h1>
+    <form method="post" action="#" th:action="@{/producto/nuevo/submit}" th:object="${productoForm}">
+        <input type="hidden" id="id" th:field="*{id}" /><br />
+
+        <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+
+        <label>En oferta: <input type="checkbox" id="enOferta" th:field="*{enOferta}" /></label><br />
+
+        <label>Superreducido: <input type="radio" name="iva" value="Superreducido" th:field="*{tipoIva}" /></label><br />
+        <label>Reducido: <input type="radio" name="iva" value="Reducido" th:field="*{tipoIva}" /></label><br />
+        <label>Normal: <input type="radio" name="iva" value="Normal" th:field="*{tipoIva}" /></label><br />
+
+        <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br />
+        <label>Categoria
+            <select name="categoria" th:field="*{categoria}">
+              <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}">
+              </option>
+            </select>
+        </label><br/>
+        <input type="submit" value="Enviar" />
+    </form>
+    <a th:href="@{/producto/}">Inicio</a><br />
+</body>
+
+</html>

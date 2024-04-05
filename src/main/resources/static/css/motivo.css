@@ -1,0 +1,32 @@
+.motivo {
+    overflow: hidden;
+    min-height: 66vh;
+    margin-top: 20.6vh;
+}
+
+h2 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 60px;
+}
+
+
+.texto {
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 20px;
+    font-family: Verdana;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .texto {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    h2 {
+        margin-top: 70px;
+    }
+
+}

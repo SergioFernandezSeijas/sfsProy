@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUAU</title>
+</head>
+
+<body>
+    <h1>Editar raza</h1>
+    <form method="post" action="#" th:action="@{/razas/editar/submit}" th:object="${raza}">
+        <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" readonly/> </label><br />
+        <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}" /></label><br />
+        <label>Tamaño
+            <select name="tamanho" th:field="*{tamanho}">
+                <option value="Pequeno">Pequeno</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+            </select>
+        </label><br />
+        <input type="submit" value="Enviar" />
+    </form>
+    <a th:href="@{/razas/}">Inicio</a><br />
+</body>
+
+</html>

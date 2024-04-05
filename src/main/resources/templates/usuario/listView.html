@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  <main class="usuario">
+    <h1>Listado de usuarios</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Domicilio</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+          <th>Pedidos</th>
+          <th>Valoraciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="usuario : ${listaUsuarios}">
+          <td th:text="${usuario.id}">Id</td>
+          <td th:text="${usuario.nombre}">nombre</td>
+          <td th:text="${usuario.domicilio}">*</td>
+
+          <td>
+            <a th:href="@{/usuario/editar/{id}(id=${usuario.id})}">Editar</a>
+          </td>
+          <td>
+            <a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar</a>
+          </td>
+          <td><a th:href="@{/pedido/{id}(id=${usuario.id})}">Pedidos</a></td>
+          <td>
+            <a th:href="@{/valoraciones/usuario/{id}(id=${usuario.id})}">Valoraciones</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/usuario/nuevo">Nuevo usuario</a><br />
+    <p style="color: red" th:text="${msg}">mensaje</p>
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

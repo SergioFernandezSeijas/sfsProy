@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUAU</title>
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/motivo.css" />
+</head>
+
+<body>
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="motivo">
+    <h2>¿Por qué tener un perro?</h2>
+    <div class="texto">
+      <p>
+        Tener un perro no solo significa agregar un amigo peludo a tu vida, sino que también conlleva una serie de
+        beneficios que impactan positivamente en tu bienestar físico, mental y emocional. Desde compañía hasta
+        motivación para hacer ejercicio, los perros ofrecen una amplia gama de razones para considerarlos como
+        compañeros ideales. Aquí hay algunos motivos por los que tener un perro puede enriquecer tu vida:
+      </p>
+      <ol>
+        <li>
+          <b>Compañía incondicional:</b> Los perros son conocidos por su lealtad y afecto incondicional hacia sus dueños. Su
+          presencia constante puede brindar consuelo y alegría, especialmente en momentos de soledad o estrés.
+        </li>
+
+        <li>
+          <b>Motivación para hacer ejercicio:</b> Los perros necesitan ejercicio regular para mantenerse sanos y felices. Al
+          tener un perro, te verás motivado a salir a pasear, correr o jugar al aire libre, lo que puede mejorar tu
+          salud cardiovascular, reducir el estrés y aumentar tu energía.
+        </li>
+
+        <li>
+          <b>Reducción del estrés y la ansiedad:</b> La interacción con un perro puede reducir los niveles de cortisol, la
+          hormona del estrés, y aumentar la producción de endorfinas, lo que te hace sentir más relajado y feliz.
+          Acariciar a un perro puede tener un efecto calmante y reconfortante, lo que lo convierte en un gran compañero
+          para aquellos que sufren de ansiedad o depresión.
+        </li>
+
+        <li>
+          <b>Desarrollo de habilidades sociales:</b> Pasear a tu perro o llevarlo al parque puede brindarte la oportunidad de
+          conocer a otras personas y establecer nuevas amistades. Los perros actúan como un excelente rompehielos y
+          pueden facilitar la interacción social, especialmente para aquellos que son tímidos o introvertidos.
+        </li>
+
+        <li>
+          <b>Sentido de propósito y responsabilidad:</b> Cuidar a un perro implica una serie de responsabilidades, como
+          proporcionarle comida, ejercicio, atención veterinaria y cariño. Esta responsabilidad puede ayudarte a
+          desarrollar un sentido de propósito y estructura en tu vida, además de fomentar cualidades como la paciencia,
+          la empatía y la dedicación.
+        </li>
+
+        <li>
+          <b>Seguridad y protección:</b> Muchas razas de perros tienen instintos protectores innatos, lo que puede brindarte
+          una sensación de seguridad en tu hogar. Los perros pueden alertarte ante la presencia de extraños o
+          situaciones potencialmente peligrosas, proporcionando una capa adicional de protección para ti y tu familia.
+        </li>
+      </ol>
+
+      <p>
+        En resumen, tener un perro va mucho más allá de simplemente tener una mascota; es una experiencia profundamente
+        gratificante que puede mejorar significativamente tu calidad de vida en varios aspectos. Desde el amor
+        incondicional hasta la motivación para mantenerse activo y saludable, los perros ofrecen una compañía invaluable
+        que no se puede subestimar.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="final">
+      <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+
+      <div>
+        <p id="redes">
+          <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
+          <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter" /></a>
+          <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram" /></a>
+          <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube" /></a>
+          <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok" /></a>
+        </p>
+      </div>
+
+      <p>
+        <a href="https://www.boe.es/eli/es/l/2023/03/28/7" class="enlFinal">Ley de Bienestar Animal</a>
+      </p>
+      <p><a href="" class="enlFinal">Ayuda</a></p>
+      <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+      <p th:text="${anhoActual}"></p>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

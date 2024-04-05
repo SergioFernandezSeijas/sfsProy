@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <h1>Nueva Categoría</h1>
+    <form method="post" action="#" th:action="@{/categorias/new/submit}"
+            th:object="${categoriaForm}">
+            <input type="hidden" id="id" th:field="*{id}" /><br/>
+            <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+            <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>

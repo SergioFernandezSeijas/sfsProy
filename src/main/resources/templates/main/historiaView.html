@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUAU</title>
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/historia.css" />
+</head>
+
+<body>
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  <main class="historia">
+    <h2>Historia</h2>
+    <div class="cuadroInfo">
+      <img src="/images/perroEgipcio.png" width="200px" height="auto" />
+    </div>
+    <div class="texto">
+      <p>
+        Los perros, compañeros leales del humano desde tiempos inmemoriales, han compartido con nosotros un vínculo
+        especial a lo largo de la historia. Se cree que la domesticación de los perros comenzó hace unos 15,000 años,
+        convirtiendolos posiblemente en el primer animal domesticado por el ser humano, cuando lobos salvajes se acercaron a los asentamientos humanos en busca de comida y seguridad.      
+        A lo largo del tiempo, esta relación evolucionó, y los humanos comenzaron a criar y seleccionar perros por sus habilidades
+        específicas, como la caza, la guarda, y la compañía.
+      </p>
+      <p>
+        En la antigüedad, los perros desempeñaron roles vitales en la vida de las personas. En Egipto, eran
+        reverenciados como protectores y compañeros en la vida y en la muerte, enterrados junto a sus dueños en
+        elaboradas tumbas. Los romanos los utilizaban para cazar y como guardianes, mientras que en China eran
+        considerados símbolos de buena suerte.
+      </p>
+      <p>
+        Durante la Edad Media, los perros se convirtieron en compañeros indispensables para los cazadores, ayudando a
+        rastrear y capturar presas. Razas como el sabueso y el pointer se desarrollaron específicamente para esta tarea.
+        En el Renacimiento, los perros también se convirtieron en símbolos de estatus y poder, apareciendo en retratos
+        junto a la nobleza.
+      </p>
+      <p>
+        El siglo XIX vio un aumento en la cría selectiva de razas de perros, dando lugar a una amplia variedad de
+        formas, tamaños y temperamentos. Esta época también marcó el surgimiento de los primeros clubes de razas y
+        exposiciones caninas, donde los criadores exhibían con orgullo sus ejemplares.
+      </p>
+      <p>
+        En el siglo XX, los perros siguieron desempeñando roles vitales en la sociedad, incluyendo el trabajo como
+        perros de rescate, perros guía para personas con discapacidad, y perros de terapia para ayudar en la salud
+        mental y emocional de las personas. Además, la popularidad de los perros como mascotas aumentó
+        considerablemente, convirtiéndolos en miembros queridos de millones de familias en todo el mundo.
+      </p>
+      <p>
+        En la actualidad, los perros continúan siendo una parte integral de nuestras vidas, brindándonos amor
+        incondicional, compañía y apoyo. Su historia es una prueba del profundo vínculo que compartimos con estos
+        maravillosos compañeros, una relación que ha resistido el paso del tiempo y sigue floreciendo hoy en día.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="final">
+      <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+
+      <div>
+        <p id="redes">
+          <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
+          <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter" /></a>
+          <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram" /></a>
+          <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube" /></a>
+          <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok" /></a>
+        </p>
+      </div>
+
+      <p>
+        <a href="https://www.boe.es/eli/es/l/2023/03/28/7" class="enlFinal">Ley de Bienestar Animal</a>
+      </p>
+      <p><a href="" class="enlFinal">Ayuda</a></p>
+      <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+      <p th:text="${anhoActual}"></p>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+#afgano {
+  padding-top: 10px;
+  transition: background 0.5s ease-in-out;
+}
+
+#akita {
+  padding-top: 25px;
+  transition: background 0.5s ease-in-out;
+}
+
+#basenji {
+  padding-top: 25px;
+  transition: background 0.5s ease-in-out;
+}
+
+#basset {
+  padding-top: 40px;
+  transition: background 0.5s ease-in-out;
+}
+
+#hound {
+  padding-top: 19px;
+  transition: background 0.5s ease-in-out;
+}
+
+#beagle {
+  padding-top: 22px;
+  transition: background 0.5s ease-in-out;
+}
+
+#bedlington {
+  padding-top: 45px;
+  transition: background 0.5s ease-in-out;
+}
+
+#bichon {
+  padding-top: 62px;
+  transition: background 0.5s ease-in-out;
+}
+
+#bloodhound {
+  padding-top: 5px;
+  transition: background 0.5s ease-in-out;
+}
+
+#bobtail {
+  padding-top: 20px;
+  transition: background 0.5s ease-in-out;
+}
+
+#collie {
+  padding-top: 20px;
+  transition: background 0.5s ease-in-out;
+}
+
+#boston {
+  padding-top: 38px;
+  transition: background 0.5s ease-in-out;
+}
+
+#afgano:hover,
+#akita:hover,
+#basenji:hover,
+#basset:hover,
+#hound:hover,
+#beagle:hover,
+#bedlington:hover,
+#bichon:hover,
+#bloodhound:hover,
+#bobtail:hover,
+#collie:hover,
+#boston:hover {
+  background-color: #acacac;
+}

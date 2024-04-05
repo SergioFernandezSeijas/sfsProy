@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="linProd">
+    <h1>Listado de pedidos de un producto</h1>
+    <h2 th:text="'Producto: ' + ${producto.nombre}">Producto</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="lineaPedido : ${listaLineaPedido}">
+          <td th:text="${lineaPedido.pedido.id}">Id</td>
+          <td th:text="${lineaPedido.pedido.fecha}">fecha</td>
+          <td th:text="${lineaPedido.cantidad}">cantidad</td>
+          <td th:text="${lineaPedido.precio}">precio</td>
+          <td>
+            <a th:href="@{/lineaPedido/borrar/{id}
+(id=${lineaPedido.id})}">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/lineaPedido/nuevo}">Nueva relación usuario - producto</a><br />
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

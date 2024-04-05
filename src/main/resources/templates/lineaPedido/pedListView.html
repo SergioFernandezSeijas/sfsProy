@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+</head>
+
+<body>
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="linPed">
+    <h1>Listado de productos de un pedido</h1>
+    <h2 th:text="'Pedido: ' + ${pedido.id}">Pedido</h2>
+    <table>
+      <thead>
+        <tr>
+          <!-- <th>ID</th> -->
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="lineaPedido : ${listaLineaPedido}">
+          <!-- <td th:text="${lineaPedido.producto.id}">Id</td> -->
+          <td th:text="${lineaPedido.producto.nombre}">nombre</td>
+          <td th:text="${lineaPedido.cantidad}">Cantidad</td>
+          <td th:text="${lineaPedido.precio + ' €'}">€</td>
+          <td>
+            <a th:href="@{/lineaPedido/borrar/{id}
+(id=${lineaPedido.id})}">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b>Importe Total: <td th:text="${pedido.importe + ' €'}">€</td></b><br/>
+    <a th:href="@{/lineaPedido/nuevo}">Añadir al carrito</a><br />
+    <a th:href="@{/pedido/cerrar}">Cerrar pedido</a><br />
+    <a th:href="@{/pedido/}">Ver todos los pedidos</a><br />
+  </main>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

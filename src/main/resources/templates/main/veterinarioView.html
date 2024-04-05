@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUAU</title>
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/veterinario.css" />
+</head>
+
+<body>
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+
+  <main class="veterinario">
+    <h2>Calendario de Visitas al veterinario y Vacunas</h2>
+    <table border="1px">
+      <tr>
+        <th>Edad</th>
+        <th>Visitas</th>
+        <th>Vacunas</th>
+      </tr>
+      <tr>
+        <td>Cachorro (0 - 4 meses)</td>
+        <td>3 visitas (cada 3-4 semanas hasta las 16 semanas)</td>
+        <td>Vacunas básicas: Parvovirus, Moquillo, Hepatitis, Parainfluenza, Rabia</td>
+      </tr>
+      <tr>
+        <td>Cachorro (4 - 12 meses)</td>
+        <td>3 visitas (cada 3-4 semanas hasta las 16 semanas)</td>
+        <td>Vacunas de refuerzo: Parvovirus, Moquillo, Hepatitis, Parainfluenza, Rabia</td>
+      </tr>
+      <tr>
+        <td>Adulto (1 - 7 años)</td>
+        <td>1-2 visitas al año (exámenes de rutina, vacunas de refuerzo según necesidad)</td>
+        <td>Vacunas de refuerzo según necesidad, como Bordetella, Leptospirosis, Influenza canina</td>
+      </tr>
+      <tr>
+        <td>Adulto Mayor (7+ años)</td>
+        <td>2-3 visitas al año (exámenes de rutina, monitoreo de salud)</td>
+        <td>Vacunas de refuerzo según necesidad, atención especial a problemas de salud relacionados con la edad</td>
+      </tr>
+    </table>
+  </main>
+
+  <footer>
+    <div class="final">
+      <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+
+      <div>
+        <p id="redes">
+          <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
+          <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter" /></a>
+          <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram" /></a>
+          <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube" /></a>
+          <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok" /></a>
+        </p>
+      </div>
+
+      <p>
+        <a href="https://www.boe.es/eli/es/l/2023/03/28/7" class="enlFinal">Ley de Bienestar Animal</a>
+      </p>
+      <p><a href="" class="enlFinal">Ayuda</a></p>
+      <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+      <p th:text="${anhoActual}"></p>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
+</html>

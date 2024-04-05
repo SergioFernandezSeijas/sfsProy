@@ -1,0 +1,64 @@
+.imagen {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.imagen img.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.imagen:hover img:not(.top) {
+    opacity: 0;
+}
+
+.imagen:hover img.top {
+    opacity: 1;
+}
+
+#collarPerro {
+    padding-top: 30px;
+}
+
+#arnes {
+    padding-top: 24px;
+}
+
+#arnesPerro {
+    padding-top: 8px;
+}
+
+#comidaPiensosAdulto {
+    padding-top: 38px;
+}
+
+#comidaPiensosCachorro {
+    padding-top: 40px;
+}
+
+#correa {
+    padding-top: 42px;
+}
+
+#correaPerro {
+    padding-top: 80px;
+    padding-left: 20px;
+}
+
+#chubasquero {
+    padding-top: 42px;
+}
+
+#chubasqueroPerro {
+    padding-top: 50px;
+}
