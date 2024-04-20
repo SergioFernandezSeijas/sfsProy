@@ -16,11 +16,11 @@
   <main class="tienda">
     <div class="fotosContainer">
       <div class="fotosTienda">
-        <select id="select" onChange="changeCategory();">
+        <!-- <select id="select" onChange="changeCategory();">
           <option value="0">Todas</option>
           <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}"
             th:selected="${cat.id} == ${categoriaSeleccionada} ? true : false"></option>
-        </select>
+        </select> -->
         <!-- <div class="imagen" id="collar">
           <img class="collar" src="/images/imgTienda/collar.png" width="350" height="350" alt="Collar" title="Collar"/>
           <img class="top" id="collarPerro" src="/images/imgTienda/collarPerro.png" width="350" height="350" alt="Collar" title="Collar"/>
@@ -29,9 +29,9 @@
 
           <div th:each="producto : ${listaProductos}" class="imagen" th:id="${producto.id}">
                 
-            <img th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '.png'}" width="350" height="350" th:alt="${producto.nombre}" th:title="${producto.nombre}" />
-            <img class="top" th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase()} + '1.png'}" width="350" height="350" th:alt="${producto.nombre}" th:title="${producto.nombre}" />
-            <p th:text="${producto.nombre}"></p>
+            <img th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img1'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
+            <img class="top" th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase()} + '1.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img2'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
+            <p th:text="${producto.nombre}" th:id="${producto.nombre.toLowerCase().replace(' ', '_')}"></p>
             <!-- <td th:text="${producto.enOferta} ? 'Sí' : 'No'">*</td>
             <td th:text="${producto.tipoIva}">%</td> -->
             <p th:text="${producto.precio + ' €'}">€</p> <br/> <br/> 

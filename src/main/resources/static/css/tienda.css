@@ -26,39 +26,78 @@
     opacity: 1;
 }
 
-#collarPerro {
-    padding-top: 30px;
+
+
+#collar {
+    padding-top: 20px;
 }
 
-#arnes {
+#collar_img2 {
     padding-top: 24px;
 }
 
-#arnesPerro {
-    padding-top: 8px;
+#arnés {
+    padding-top: 41px;
 }
 
-#comidaPiensosAdulto {
-    padding-top: 38px;
+#arnés_img2 {
+    padding-left: 10px;
 }
 
-#comidaPiensosCachorro {
-    padding-top: 40px;
+
+#piensos_adulto {
+    padding-top: 35px;
+}
+
+#piensos_adulto_img1 {
+    padding-top: 15px;
+}
+
+#piensos_cachorro {
+    padding-top: 35px;
+}
+
+#piensos_cachorro_img1 {
+    padding-top: 15px;
 }
 
 #correa {
-    padding-top: 42px;
+    padding-top: 37px;
 }
 
-#correaPerro {
-    padding-top: 80px;
+#correa_img1 {
+    padding-top: 15px;
+}
+
+#correa_img2 {
+    padding-top: 87px;
     padding-left: 20px;
 }
 
+
 #chubasquero {
-    padding-top: 42px;
+    padding-top: 37px;
 }
 
-#chubasqueroPerro {
-    padding-top: 50px;
+#chubasquero_img1 {
+    padding-top: 17px;
 }
+
+#chubasquero_img2 {
+    padding-top: 40px;
+}
+
+
+
+/* #arnesPerro {
+    padding-top: 8px;
+} */
+
+/* #correaPerro {
+    padding-top: 80px;
+    padding-left: 20px;
+} */
+
+/* #chubasqueroPerro {
+    padding-top: 50px;
+} */
