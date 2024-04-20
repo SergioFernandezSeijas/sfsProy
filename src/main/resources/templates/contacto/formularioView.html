@@ -27,19 +27,17 @@
   </form> -->
     <h2>Contacto</h2>
     <form action="#" method="post" th:action="@{/contacto/submit}" th:object="${formContacto}">
-      Nombre: <input type="text" th:field="*{nombre}" required /><br /><br />
-      Email: <input type="email" th:field="*{email}" required /><br /><br />
-      Motivo:
-      <select th:field="*{motivo}">
+      <label id="asunto_etiq">Asunto:</label> <input type="text" th:field="*{asunto}" id="asunto" required /><br /><br />
+      <label id="email_etiq">Email:</label> <input type="text" th:field="*{email}" id="email"/><br /><br />
+      <label id="motivo_etiq">Motivo:</label>
+      <select th:field="*{motivo}" id="motivo">
         <option value="queja">Queja</option>
         <option value="consulta">Consulta</option>
         <option value="otros">Otros</option>
       </select><br /><br />
-      Comentarios: <br />
-      <textarea th:field="*{comentarios}" rows="4" cols="50"></textarea><br /><br />
-      Aceptar las condiciones del servicio:
-      <input type="checkbox" th:field="*{aceptarCondiciones}" /><br /><br />
-      <input type="submit" value="Enviar" /><br />
+      <label id="comentario_etiq">Comentarios:</label> <br />
+      <textarea th:field="*{comentarios}" id="comentarios" rows="4" cols="50"  required></textarea><br /><br />
+      <input type="submit" id="enviar" value="Enviar" /><br />
     </form>
   </main>
   <footer>

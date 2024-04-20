@@ -6,9 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Contacto {
-    private String nombre;
+    private String asunto;
     private String email;
     private String motivo;
     private String comentarios;
-    private boolean aceptarCondiciones;
 }

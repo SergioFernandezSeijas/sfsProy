@@ -7,8 +7,8 @@
 
 h2 {
   text-align: center;
-  font-size: 45px;
-  margin-bottom: 60px;
+  font-size: 40px;
+  margin-bottom: 50px;
 }
 
 .contacto form {
@@ -16,33 +16,40 @@ h2 {
   margin: 0 auto;
 }
 
-.contacto form input[type="text"],
-.contacto form input[type="email"],
-.contacto form textarea {
+#asunto_etiq,
+#email_etiq,
+#motivo_etiq,
+#comentario_etiq {
+  font-size: 20px;
+}
+
+#asunto,
+#email,
+#comentarios {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.contacto form select {
+#motivo {
   width: 103.5%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.contacto form textarea {
-  resize: vertical;
+textarea {
+  resize: none;
 }
 
-.contacto form input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-.contacto form input[type="submit"] {
+#enviar {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -52,7 +59,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-.contacto form input[type="submit"]:hover {
+#enviar:hover {
   background-color: #45a049;
 }
 
