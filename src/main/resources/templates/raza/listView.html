@@ -20,13 +20,13 @@
           <img src="/images/razas/afgano.png" width="350" height="350" alt="Afgano" title="Afgano" />
           <p>Afgano</p>
         </div> -->
-        <div th:each="raza : ${listaRazas}" class="imagen" th:id="${raza.nombre}">
+        <div th:each="raza : ${listaRazas}" class="imagen" th:id="${raza.nombre.toLowerCase().replace(' ', '_')}">
           <!-- <img th:src="@{${raza.rutaImagen}}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
           <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase()} + '.png'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
           <img th:src="${getImageUrl(raza.nombre)}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" /> -->
               
-          <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
-          <p th:text="${raza.nombre}"></p>
+          <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
+          <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
           <!-- <p th:text="${'Esperanza de vida: ' + raza.esperanzaVida + ' años'}"></p>
           <p th:text="${'Tamaño: ' + raza.tamanho}"></p> -->
           <p sec:authorize="hasRole('ADMIN')">

@@ -76,11 +76,8 @@ div.finalTienda div {
 
 
 @media only screen and (max-width: 700px) {
-  div#collar {
-    margin-top: 9vh;
-  }
 
   div.imagen{
-    margin-top: 8px;
+    margin-top: 20px;
   }
 }

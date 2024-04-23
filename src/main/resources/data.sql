@@ -5,12 +5,12 @@ insert into raza (nombre, esperanzaVida, tamanho) values ('Basset Hound', 12,'Pe
 insert into raza (nombre, esperanzaVida, tamanho) values ('Basset Griffon', 21,'Pequeno');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Beagle',23 ,'Pequeno');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Bedlington Terrier',12 ,'Pequeno');
-insert into raza (nombre, esperanzaVida, tamanho) values ('Bichon Frise', 11,'Pequeno');
+insert into raza (nombre, esperanzaVida, tamanho) values ('Bichón Frisé', 11,'Pequeno');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Bloodhound', 11, 'Grande');
-insert into raza (nombre, esperanzaVida, tamanho) values ('Boobtail',12 ,'Grande');
+insert into raza (nombre, esperanzaVida, tamanho) values ('Bobtail',12 ,'Grande');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Border Collie',12,'Mediano');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Boston Terrier',12 ,'Pequeno');
-insert into raza (nombre, esperanzaVida, tamanho) values ('Boxer',14 ,'Mediano');
+insert into raza (nombre, esperanzaVida, tamanho) values ('Bóxer',14 ,'Mediano');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Boyero de Berna', 12,'Grande');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Braco de Weimar',15 ,'Grande');
 insert into raza (nombre, esperanzaVida, tamanho) values ('Bull Terrier',20 ,'Pequeno');

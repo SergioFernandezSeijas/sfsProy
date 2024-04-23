@@ -1,74 +1,120 @@
 #afgano {
+  margin-bottom: 5px;
+}
+
+#afgano_img {
   padding-top: 10px;
-  transition: background 0.5s ease-in-out;
 }
 
 #akita {
+  margin-bottom: 5px;
+}
+
+#akita_img {
   padding-top: 25px;
-  transition: background 0.5s ease-in-out;
 }
 
 #basenji {
+  margin-bottom: 5px;
+}
+
+#basenji_img {
   padding-top: 25px;
-  transition: background 0.5s ease-in-out;
 }
 
-#basset {
+#basset_griffon {
+  margin-bottom: 5px;
+}
+
+#basset_griffon_img {
   padding-top: 40px;
-  transition: background 0.5s ease-in-out;
 }
 
-#hound {
+#basset_hound {
+  margin-bottom: 5px;
+}
+
+#basset_hound_img {
   padding-top: 19px;
-  transition: background 0.5s ease-in-out;
 }
 
 #beagle {
+  margin-bottom: 5px;
+}
+
+#beagle_img {
   padding-top: 22px;
-  transition: background 0.5s ease-in-out;
 }
 
-#bedlington {
+
+#bedlington_terrier {
+  margin-top: 5px;
+}
+
+#bedlington_terrier_img {
   padding-top: 45px;
-  transition: background 0.5s ease-in-out;
 }
 
-#bichon {
-  padding-top: 62px;
-  transition: background 0.5s ease-in-out;
+#bichón_frisé {
+  margin-top: 5px;
+}
+
+#bichón_frisé_img {
+  padding-top: 44px;
+}
+
+#bichón_frisé_texto {
+  padding-top: 18px;
 }
 
 #bloodhound {
+  margin-top: 5px;
+}
+
+#bloodhound_img {
   padding-top: 5px;
-  transition: background 0.5s ease-in-out;
 }
 
 #bobtail {
-  padding-top: 20px;
-  transition: background 0.5s ease-in-out;
+  margin-top: 5px;
 }
 
-#collie {
+#bobtail_img {
   padding-top: 20px;
-  transition: background 0.5s ease-in-out;
 }
 
-#boston {
-  padding-top: 38px;
-  transition: background 0.5s ease-in-out;
+#border_collie {
+  margin-top: 5px;
+}
+
+#border_collie_img {
+  padding-top: 20px;
+}
+
+#boston_terrier {
+  margin-top: 5px;
+}
+
+#boston_terrier_img {
+  padding-top: 40px;
+}
+
+#boston_terrier_texto {
+  padding-top: 33px;
 }
 
 #afgano:hover,
 #akita:hover,
 #basenji:hover,
-#basset:hover,
-#hound:hover,
+#basset_griffon:hover,
+#basset_hound:hover,
 #beagle:hover,
-#bedlington:hover,
-#bichon:hover,
+#bedlington_terrier:hover,
+#bichón_frisé:hover,
 #bloodhound:hover,
 #bobtail:hover,
-#collie:hover,
-#boston:hover {
+#border_collie:hover,
+#boston_terrier:hover {
   background-color: #acacac;
+  transition: background 0.5s ease-in-out;
 }
