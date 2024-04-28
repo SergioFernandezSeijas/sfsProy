@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/contacto.css" />
+  <script src="/js/validarFormularioContacto.js"></script>
   <title>GUAU</title>
 </head>
 
@@ -27,16 +28,32 @@
   </form> -->
     <h2>Contacto</h2>
     <form action="#" method="post" th:action="@{/contacto/submit}" th:object="${formContacto}">
-      <label id="asunto_etiq">Asunto:</label> <input type="text" th:field="*{asunto}" id="asunto" required /><br /><br />
-      <label id="email_etiq">Email:</label> <input type="text" th:field="*{email}" id="email"/><br /><br />
+
+      <div style="position: absolute;left: -9999px;">
+        <input type="text" name="input_apellidos" tabindex="-1">
+      </div><!--  Detectar spammers -->
+
+      <div>
+        <label id="asunto_etiq">Asunto:</label> <input type="text" th:field="*{asunto}" id="asunto" required />
+        <span id="mensajeError0"></span> <br />
+      </div>
+
+      <div>
+        <label id="email_etiq">Email:</label> <input type="email" th:field="*{email}" id="email" />
+      </div>
+
       <label id="motivo_etiq">Motivo:</label>
       <select th:field="*{motivo}" id="motivo">
         <option value="queja">Queja</option>
         <option value="consulta">Consulta</option>
         <option value="otros">Otros</option>
       </select><br /><br />
-      <label id="comentario_etiq">Comentarios:</label> <br />
-      <textarea th:field="*{comentarios}" id="comentarios" rows="4" cols="50"  required></textarea><br /><br />
+
+      <label id="comentario_etiq">Comentario:</label> <br />
+      <textarea th:field="*{comentarios}" id="comentarios" rows="4" cols="50" required></textarea>
+      <span id="mensajeError1"></span><br /><br />
+
+
       <input type="submit" id="enviar" value="Enviar" /><br />
     </form>
   </main>

@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,7 @@ public class ContactoController {
     @GetMapping("/")
     public String showContact(Model model) { 
         model.addAttribute("formContacto", new Contacto());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "contacto/formularioView";
     }  
 

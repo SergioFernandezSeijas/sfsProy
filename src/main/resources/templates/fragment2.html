@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUAU</title>
+</head>
+<body>
+    <footer th:fragment="piePagina">
+        <div class="final">
+          <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
+    
+          <div>
+            <p id="redes">
+              <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="/images/logoFacebook.png" title="Facebook"></a>
+              <a href="https://twitter.com/?lang=es" target="_blank"><img src="/images/logoTwitter.png" title="Twitter"/></a>
+              <a href="https://www.instagram.com/" target="_blank"><img src="/images/logoInstagram.png" title="Instagram"/></a>
+              <a href="https://www.youtube.com/" target="_blank"><img src="/images/logoYoutube.png" title="Youtube"/></a>
+              <a href="https://www.tiktok.com/es/" target="_blank"><img src="/images/logoTikTok.png" title="TikTok"/></a>
+            </p>
+          </div>
+    
+          <p>
+            <a href="https://www.boe.es/eli/es/l/2023/03/28/7" target="_blank" class="enlFinal">Ley de Bienestar Animal</a>
+          </p>
+          <p><a href="" class="enlFinal">Ayuda</a></p>
+          <p><a href="" class="enlFinal">Términos y condiciones</a></p>
+          <p th:text="${anhoActual}"></p>
+        </div>
+      </footer>
+</body>
+</html>

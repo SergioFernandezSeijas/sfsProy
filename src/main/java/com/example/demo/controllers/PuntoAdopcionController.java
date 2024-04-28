@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,7 @@ public class PuntoAdopcionController {
     public String showList(Model model) {
         model.addAttribute("formInfo", new PuntoAdopcion());
         model.addAttribute("listaAdopta", puntoAdopcionService.getLugaresAdopcion());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "puntoAdopcion/adoptaView";
     }
 

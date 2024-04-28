@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,7 @@ public class ProductoController {
         model.addAttribute("listaProductos", productoService.obtenerTodos());
         model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
         model.addAttribute("categoriaSeleccionada", 0);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         if (op != null) {
             switch (op) {
                 case 1 -> model.addAttribute("msg", "Producto añadido correctamente");

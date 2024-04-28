@@ -194,28 +194,8 @@
   <p style="color: red" th:text="${msg}">mensaje</p>
 
 
-  <footer>
-    <div class="final">
-      <p><a href="/contacto/" class="enlFinal">Contáctanos</a></p>
-
-      <div>
-        <p id="redes">
-          <a href="https://www.facebook.com/?locale=es_ES"><img src="/images/logoFacebook.png" title="Facebook"></a>
-          <a href="https://twitter.com/?lang=es"><img src="/images/logoTwitter.png" title="Twitter"/></a>
-          <a href="https://www.instagram.com/"><img src="/images/logoInstagram.png" title="Instagram"/></a>
-          <a href="https://www.youtube.com/"><img src="/images/logoYoutube.png" title="Youtube"/></a>
-          <a href="https://www.tiktok.com/es/"><img src="/images/logoTikTok.png" title="TikTok"/></a>
-        </p>
-      </div>
-
-      <p>
-        <a href="https://www.boe.es/eli/es/l/2023/03/28/7" target="_blank" class="enlFinal">Ley de Bienestar Animal</a>
-      </p>
-      <p><a href="" class="enlFinal">Ayuda</a></p>
-      <p><a href="" class="enlFinal">Términos y condiciones</a></p>
-      <p th:text="${anhoActual}"></p>
-    </div>
-  </footer>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+  
   <script>
     function toggleMenu() {
       var nav = document.querySelector("nav ul");

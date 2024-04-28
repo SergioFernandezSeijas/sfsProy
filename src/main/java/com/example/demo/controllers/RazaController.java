@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +33,7 @@ public class RazaController {
         model.addAttribute("pagSiguiente", pagSig);
         model.addAttribute("pagAnterior", pagAnt);
         model.addAttribute("pagFinal", ultPag);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "raza/listView";
     }
 
