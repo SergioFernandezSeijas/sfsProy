@@ -106,38 +106,6 @@
       </div>
     </div>
   </main>
-  <!-- <table>
-    <thead>
-      <th>Nombre</th>
-      <th>Esperanza de vida</th>
-      <th>Tamaño</th>
-      <th sec:authorize="hasRole('ADMIN')">
-        Editar
-      </th>
-      <th sec:authorize="hasRole('ADMIN')">
-        Borrar
-      </th>
-      <!-- <th>Más Información</th> -->
-    <!-- </thead>
-    <tbody>
-      <tr th:each="raza : ${listaRazas}">
-        <td th:text="${raza.nombre}">nombre</td>
-        <td th:text="${raza.esperanzaVida}">años</td>
-        <td th:text="${raza.tamanho}">tamaño</td>
-
-        <td sec:authorize="hasRole('ADMIN')">
-          <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
-        </td>
-        <td sec:authorize="hasRole('ADMIN')">
-          <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
-        </td>
-      </tr>
-    </tbody>
-  </table> 
-  <a th:href="@{/razas/?pag=0}">Pág inicial</a>&nbsp;|&nbsp;
-  <a th:href="@{/razas/(pag=${pagAnterior})}">Pág ant</a>&nbsp;|&nbsp;
-  <a th:href="@{/razas/(pag=${pagSiguiente})}">Pág sig</a>&nbsp;|&nbsp;
-  <a th:href="@{/razas/(pag=${pagFinal})}">Utl.pág</a> <br /><br /> -->
 
   <td sec:authorize="hasRole('ADMIN')">
     <a href="/razas/nuevo">Nueva raza de perro</a><br />

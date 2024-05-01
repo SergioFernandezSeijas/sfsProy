@@ -40,6 +40,7 @@
     </table>
     <a th:href="@{/valoraciones/nuevo/{id}(id=${producto.id})}">Valorar</a><br />
   </main>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>
     function toggleMenu() {
       var nav = document.querySelector("nav ul");

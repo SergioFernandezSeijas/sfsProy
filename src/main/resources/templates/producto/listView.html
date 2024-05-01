@@ -121,55 +121,7 @@
     <option value="0">Todas</option>
     <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}"
       th:selected="${cat.id} == ${categoriaSeleccionada} ? true : false"></option>
-  </select>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>En oferta</th>
-        <th>Tipo IVA</th>
-        <th>Precio</th>
-        <th sec:authorize="hasRole('ADMIN')" class="nav-item">
-          Editar
-        </th>
-        <th sec:authorize="hasRole('ADMIN')" class="nav-item">
-          Borrar
-        </th>
-        <th>Valoraciones</th>
-        <th sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
-          Añadir al carrito
-        </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr th:each="producto : ${listaProductos}">
-        <td th:text="${producto.id}">Id</td>
-        <td th:text="${producto.nombre}">nombre</td>
-        <td th:text="${producto.enOferta} ? 'Sí' : 'No'">*</td>
-        <td th:text="${producto.tipoIva}">%</td>
-        <td th:text="${producto.precio}">€</td>
-
-        <td sec:authorize="hasRole('ADMIN')" class="nav-item">
-          <a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar</a>
-        </td>
-
-        <td sec:authorize="hasRole('ADMIN')" class="nav-item">
-          <a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar</a>
-        </td>
-
-
-        <td>
-          <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}">Valoraciones</a>
-        </td>
-
-        <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
-          <a th:href="@{/producto/comprar/{id}(id=${producto.id})}">Añadir al carrito</a>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
+  </select>-->
 
   <script>
     function changeCategory() {
