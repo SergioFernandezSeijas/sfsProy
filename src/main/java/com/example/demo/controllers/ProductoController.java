@@ -100,8 +100,8 @@ public class ProductoController {
     }
 
     @GetMapping("/comprar/{id}")
-    public String getComprar(@PathVariable Long id) {
-        productoService.comprar(id, 1);
+    public String getComprar(@PathVariable Long id, @RequestParam(required = false, defaultValue = "1") Integer cantidad) {
+        productoService.comprar(id, cantidad);
         return "redirect:/producto/?op=1";
     }
     

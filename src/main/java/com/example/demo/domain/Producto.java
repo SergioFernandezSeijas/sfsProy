@@ -32,10 +32,6 @@ public class Producto {
 
     private Integer stock;
 
-    // private String rutaImagen1;
-
-    // private String rutaImagen2;
-
     @ManyToOne
     private Categoria categoria;
 }

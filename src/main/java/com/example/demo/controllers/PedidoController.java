@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class PedidoController {
         Usuario usuarioConec = usuarioService.obtenerUsuarioConectado();
         List<Pedido> listaPedidos = pedidoRepository.findByUsuario(usuarioConec);
         model.addAttribute("listarPedidos", listaPedidos);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "pedido/listView";
     }
 

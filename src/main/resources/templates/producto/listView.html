@@ -39,9 +39,11 @@
             <td>
               <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}">Valoraciones</a>
             </td>
+
+            <p>Cantidad: <input type="number" name="cantidad" id="cantidad_${producto.id}" min="1" value="1"></p>
     
             <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
-              <a th:href="@{/producto/comprar/{id}(id=${producto.id})}">Añadir al carrito</a>
+              <a th:href="@{/producto/comprar/{id}(id=${producto.id})}" class="agregar-carrito">Añadir al carrito</a>
             </td>
             <br/>
             <br/>
@@ -124,11 +126,24 @@
   </select>-->
 
   <script>
-    function changeCategory() {
-      const select = document.getElementById("select");
-      if (select.value == 0) window.location.href = "/producto/";
-      else window.location.href = "/producto/porCateg/" + select.value;
-    }
+    // function changeCategory() {
+    //   const select = document.getElementById("select");
+    //   if (select.value == 0) window.location.href = "/producto/";
+    //   else window.location.href = "/producto/porCateg/" + select.value;
+    // }
+    document.addEventListener('DOMContentLoaded', function() {
+        var agregarCarritoBtns = document.querySelectorAll('.agregar-carrito');
+        agregarCarritoBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault(); // Evitar que el enlace se siga
+
+                var cantidadInput = event.target.parentNode.querySelector('input[type="number"]');
+                var cantidad = cantidadInput.value;
+                var productoId = event.target.getAttribute('href').split('/').pop(); // Obtener el ID del producto del enlace
+                window.location.href = "/producto/comprar/" + productoId + "?cantidad=" + cantidad;
+            });
+        });
+    });
   </script>
   
   <!-- <td sec:authorize="hasRole('USUARIO')">

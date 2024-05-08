@@ -49,6 +49,9 @@ public class PedidoService {
             importe += lp.getProducto().getPrecio() * lp.getCantidad();
         }
         pedido.setImporte(importe);
+        System.out.println("--------------------");
+        System.out.println(pedido.getImporte());
+        System.out.println("--------------------");
         pedidoRepository.save(pedido);
     }
 
