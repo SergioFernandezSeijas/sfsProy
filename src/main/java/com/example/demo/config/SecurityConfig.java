@@ -48,7 +48,7 @@ public class SecurityConfig {
                                                 .loginPage("/signin") // mapping par mostrar formulario de login
 
                                                 .loginProcessingUrl("/login") // ruta post de /signin
-
+                                                .usernameParameter("email")
                                                 .failureUrl("/signin")
                                                 .defaultSuccessUrl("/", true).permitAll())
                                 .logout((logout) -> logout

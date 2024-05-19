@@ -66,7 +66,7 @@ public class ProductoServicelmplMem implements ProductoService {
         Usuario usuarioConec = usuarioService.obtenerUsuarioConectado();
         Pedido pedidoActual = pedidoRepository.findByUsuarioAndComprado(usuarioConec, false);
         if (pedidoActual == null) {
-            pedidoActual = pedidoService.añadir(new Pedido(null, null, 0f, usuarioConec, false));
+            pedidoActual = pedidoService.añadir(new Pedido(null, null, 0f, false, usuarioConec));
         }
         Producto producto = this.obtenerPorId(idProd);
         LineaPedido lineaPedido = new LineaPedido(null, pedidoActual, producto,(long)(producto.getPrecio() * cantidad), cantidad);

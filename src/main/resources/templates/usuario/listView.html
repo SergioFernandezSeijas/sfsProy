@@ -31,6 +31,7 @@
         <tr th:each="usuario : ${listaUsuarios}">
           <td th:text="${usuario.id}">Id</td>
           <td th:text="${usuario.nombre}">nombre</td>
+          <td th:text="${usuario.email}">email</td>
           <td th:text="${usuario.domicilio}">*</td>
 
           <td>

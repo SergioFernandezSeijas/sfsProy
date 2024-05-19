@@ -35,7 +35,7 @@ public class PedidoController {
 
     @GetMapping("/{id}")
     public String mostrar(@PathVariable Long id, Model model) {
-        model.addAttribute("listaPedidos", pedidoService.obtenerPorUsuario(id));
+        model.addAttribute("listarPedidos", pedidoService.obtenerPorUsuario(id));
         return "pedido/listView";
     }
 

@@ -62,8 +62,8 @@ public class UsuarioService {
     public Usuario obtenerUsuarioConectado() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            String nombreUsuarioConectado = authentication.getName();
-            return usuarioRepository.findByNombre(nombreUsuarioConectado);
+            String emailUsuarioConectado = authentication.getName();
+            return usuarioRepository.findByEmail(emailUsuarioConectado);
         }
         return null;
     }

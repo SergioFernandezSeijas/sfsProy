@@ -59,7 +59,7 @@
         <div th:if="${param.error}" class="message">Credenciales incorrectas</div>
         <div th:if="${param.logout}" class="message">Te has desconectado</div>
         <form th:action="@{/login}" method="post">
-            <input type="text" name="username" placeholder="Nombre de usuario"/><br/>
+            <input type="text" name="email" placeholder="Correo electrónico"/><br/>
             <input type="password" name="password" placeholder="Contraseña"/><br/>
             <input type="submit" value="Iniciar sesión" />
         </form>
