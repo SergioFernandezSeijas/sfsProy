@@ -3,25 +3,34 @@ package com.example.demo.domain;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of="nombre")
 
 @Entity
+@Table(name = "raza")
 public class Raza {
     @Id
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "ESPERANZAVIDA")
-    private Integer esperanzaVida;
+    @Column(name = "puntuacion")
+    private Integer puntuacion;
 
-    private String tamanho;
+    // @Column(name = "ESPERANZAVIDA")
+    // private Integer esperanzaVida;
+
+    // private String tamanho;
 
     // private String rutaImagen;
+
+    public Raza(String nombre, Integer puntuacion) {
+        this.nombre = nombre;
+        this.puntuacion = puntuacion;
+    }
 }

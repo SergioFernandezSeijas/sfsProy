@@ -40,7 +40,10 @@
               <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}">Valoraciones</a>
             </td>
 
-            <p>Cantidad: <input type="number" name="cantidad" id="cantidad_${producto.id}" min="1" value="1"></p>
+            <br>
+
+            <input type="number" name="cantidad" id="cantidad_${producto.id}" min="1" value="1">
+            <br>
     
             <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
               <a th:href="@{/producto/comprar/{id}(id=${producto.id})}" class="agregar-carrito">Añadir al carrito</a>
