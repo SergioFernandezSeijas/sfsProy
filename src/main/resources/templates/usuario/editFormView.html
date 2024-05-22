@@ -9,10 +9,17 @@
     <h1>Editar usuario</h1>
     <form method="post" action="#" th:action="@{/usuario/editar/submit}" th:object="${usuarioForm}">
         <label>Id: <input type="text" id="id" th:field="*{id}" readonly/> </label><br />
+
+        <label>Email: <input type="email" id="email" th:field="*{email}" /></label><br />
         
         <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
 
         <label>Domicilio: <input type="text" id="domicilio" th:field="*{domicilio}" /></label><br />
+
+        <label>Contraseña:
+            <input type="text" id="contrasenha" th:field="*{password}" />
+        </label><br />
+        
         <input type="submit" value="Enviar" />
     </form>
     <a th:href="@{/usuario/}">Inicio</a><br />

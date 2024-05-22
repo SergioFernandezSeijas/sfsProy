@@ -15,6 +15,20 @@ function validarAsunto() {
 	return true;
 }
 
+function validarEmail() {
+	let elemento = document.getElementById("email");
+	if (!elemento.checkValidity()) {
+		if (elemento.validity.valueMissing) {
+			error3(elemento, "Debe introducir un email");
+		}
+		// if (elemento.validity.valueMisMatch) {
+		// 	error3(elemento, "Formato de email incorrecto");
+		// }
+		return false;
+	}
+	return true;
+}
+
 
 function validarComentario() {
 	let elemento = document.getElementById("comentarios");
@@ -29,7 +43,7 @@ function validarComentario() {
 
 function validarFormulario(e) {
 	eliminarError();
-	if (validarAsunto() && validarComentario() && confirm("Desea enviar el formulario")) {
+	if (validarAsunto() && validarEmail() && validarComentario() && confirm("Desea enviar el formulario")) {
 		alert("Formulario enviado con exito");
 		return true;
 	}
@@ -47,6 +61,11 @@ function error1(elemento, mensaje) {
 
 function error2(elemento, mensaje) {
 	document.getElementById("mensajeError1").innerHTML = mensaje;
+	elemento.focus();
+}
+
+function error3(elemento, mensaje) {
+	document.getElementById("mensajeError2").innerHTML = mensaje;
 	elemento.focus();
 }
 

@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Raza {
     private String nombre;
 
     @Column(name = "puntuacion")
+    @Max(value = 5)
     private Integer puntuacion;
 
     // @Column(name = "ESPERANZAVIDA")

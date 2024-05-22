@@ -27,9 +27,14 @@
     <input type="submit" value="Enviar"><br />
   </form> -->
     <h2>Contacto</h2>
+
+    <div th:if="${mensajeExitoso}">
+      <p th:text="${mensajeExitoso}"></p>
+    </div>
+
     <form action="#" method="post" th:action="@{/contacto/submit}" th:object="${formContacto}">
 
-      <div style="position: absolute;left: -9999px;">
+      <div>
         <input type="text" name="input_apellidos" tabindex="-1">
       </div><!--  Detectar spammers -->
 
@@ -39,7 +44,8 @@
       </div>
 
       <div>
-        <label id="email_etiq">Email:</label> <input type="email" th:field="*{email}" id="email" />
+        <label id="email_etiq">Email:</label> <input type="email" th:field="*{email}" id="email" required/>
+        <span id="mensajeError2"></span> <br />
       </div>
 
       <label id="motivo_etiq">Motivo:</label>

@@ -48,7 +48,7 @@
 
 
 #bedlington_terrier {
-  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #bedlington_terrier_img {
@@ -103,6 +103,10 @@
   padding-top: 33px;
 }
 
+#bóxer {
+  margin-top: 5px;
+}
+
 #afgano:hover,
 #akita:hover,
 #basenji:hover,
@@ -114,7 +118,8 @@
 #bloodhound:hover,
 #bobtail:hover,
 #border_collie:hover,
-#boston_terrier:hover {
+#boston_terrier:hover,
+#bóxer:hover {
   background-color: #acacac;
   transition: background 0.5s ease-in-out;
 }

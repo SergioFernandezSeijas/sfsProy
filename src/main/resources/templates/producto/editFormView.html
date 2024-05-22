@@ -11,14 +11,19 @@
         <label>Id: <input type="text" id="id" th:field="*{id}" readonly/> </label><br />
         
         <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
-
+<!-- 
         <label>En oferta: <input type="checkbox" id="enOferta" th:field="*{enOferta}" /></label><br />
 
         <label>Superreducido: <input type="radio" name="iva" value="Superreducido" th:field="*{tipoIva}" /></label><br />
         <label>Reducido: <input type="radio" name="iva" value="Reducido" th:field="*{tipoIva}" /></label><br />
-        <label>Normal: <input type="radio" name="iva" value="Normal" th:field="*{tipoIva}" /></label><br />
+        <label>Normal: <input type="radio" name="iva" value="Normal" th:field="*{tipoIva}" /></label><br /> 
 
-        <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br />
+        <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br />-->
+
+        <label>Precio: <input type="number" id="precio" th:field="*{precio}" /></label><br />
+
+        <label>Stock: <input type="number" id="stock" th:field="*{stock}" /></label><br />
+
         <label>Categoria
             <select name="categoria" th:field="*{categoria}">
               <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}">
