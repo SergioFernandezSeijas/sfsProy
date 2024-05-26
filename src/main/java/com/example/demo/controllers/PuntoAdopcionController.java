@@ -34,6 +34,7 @@ public class PuntoAdopcionController {
         model.addAttribute("formInfo", new PuntoAdopcion());
         model.addAttribute("lugarSeleccionado", puntoAdopcionService.getAdopta(formInfo.getProvincia()));
         model.addAttribute("listaAdopta", puntoAdopcionService.getLugaresAdopcion());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "puntoAdopcion/adoptaView";
     }
 }

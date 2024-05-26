@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/infoRazas.css" />
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <title>GUAU</title>
+    <style>
+        main {
+            margin-top: 250px;
+            margin-bottom: 121px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 70px;
+        }
+
+        .razaFoto {
+            float: left;
+            margin-left: 60px;
+            margin-right: 140px;
+        }
+
+        #info {
+            border: 1px solid black;
+            width: 70%;
+            margin-left: 10%;
+            font-size: 30px;
+        }
+
+        #info td{
+            padding: 10px;
+        }
+
+        a {
+            color: black;
+        }
+
+        td {
+            font-weight: 700;
+        }
+        
+        td:first-child {
+            text-align: center;
+            border-right: 1px solid black;
+            width: 50%;
+        }
+        
+
+
+        tr:nth-child(odd) {
+            background-color: wheat;
+        }
+
+        tr:nth-child(even) {
+            background-color: whitesmoke; 
+        }
+    </style>
+</head>
+
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main>
+        <div th:if="${raza != null}">
+            <h1 th:text="${raza.nombre}"></h1>
+
+            <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}"
+                  th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="280" height="300"
+                  th:alt="${raza.nombre}" th:title="${raza.nombre}" class="razaFoto"/>
+
+            <table id="info">
+                <tr>
+                    
+                        <td>Lugar de origen:</td>
+                        <td th:text="${raza.origen}"></td>
+                    
+                </tr>
+
+                <tr>
+                    <td>Tamaño:</td>
+                    <td th:text="${raza.tamano}"></td>
+                </tr>
+
+                <tr>
+                    <td>Peso:</td>
+                    <td th:text="${raza.peso}"></td>
+                </tr>
+
+                <tr>
+                    <td>Esperanza de vida:</td>
+                    <td th:text="${raza.esperanzaVida}"></td>
+                </tr>
+
+                <tr>
+                    <td>Actividad física:</td>
+                    <td th:text="${raza.actividad}"></td>
+                </tr>
+
+                <tr>
+                    <td>Pelaje:</td>
+                    <td th:text="${raza.pelaje}"></td>
+                </tr>
+                
+                <tr>
+                    <td>URL para más información:</td>
+                    <td><a th:href="${raza.url}"  target="_blank">Info</a></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+    <script>
+        function toggleMenu() {
+          var nav = document.querySelector("nav ul");
+          nav.classList.toggle("open");
+        }
+      </script>
+</body>
+
+</html>

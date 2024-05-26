@@ -12,28 +12,15 @@
 
 <body>
   <head th:replace="~{/fragment.html::cabecera}"></head>
-  <!-- <h1>Listado de productos de la empresa</h1> -->
   <main class="tienda">
     <div class="fotosContainer">
       <div class="fotosTienda">
-        <!-- <select id="select" onChange="changeCategory();">
-          <option value="0">Todas</option>
-          <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}"
-            th:selected="${cat.id} == ${categoriaSeleccionada} ? true : false"></option>
-        </select> -->
-        <!-- <div class="imagen" id="collar">
-          <img class="collar" src="/images/imgTienda/collar.png" width="350" height="350" alt="Collar" title="Collar"/>
-          <img class="top" id="collarPerro" src="/images/imgTienda/collarPerro.png" width="350" height="350" alt="Collar" title="Collar"/>
-          <p>Collar</p>
-        </div> -->   
 
           <div th:each="producto : ${listaProductos}" class="imagen" th:id="${producto.id}">
                 
             <img th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img1'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
-            <img class="top" th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase()} + '1.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img2'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
+            <img class="top" th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '1.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img2'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
             <p th:text="${producto.nombre}" th:id="${producto.nombre.toLowerCase().replace(' ', '_')}"></p>
-            <!-- <td th:text="${producto.enOferta} ? 'Sí' : 'No'">*</td>
-            <td th:text="${producto.tipoIva}">%</td> -->
             <p th:text="${producto.precio + ' €'}">€</p> <br/> <br/> 
     
             <td>
@@ -62,65 +49,7 @@
         </div>
   
 
-          <!-- <tr th:each="producto : ${listaProductos}">
-            <td th:text="${producto.id}">Id</td>
-            <td th:text="${producto.nombre}">nombre</td>
-            <td th:text="${producto.enOferta} ? 'Sí' : 'No'">*</td>
-            <td th:text="${producto.tipoIva}">%</td>
-            <td th:text="${producto.precio}">€</td>
-    
-            <td sec:authorize="hasRole('ADMIN')" class="nav-item">
-              <a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar</a>
-            </td>
-    
-            <td sec:authorize="hasRole('ADMIN')" class="nav-item">
-              <a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar</a>
-            </td>
-    
-    
-            <td>
-              <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}">Valoraciones</a>
-            </td>
-    
-            <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
-              <a th:href="@{/producto/comprar/{id}(id=${producto.id})}">Añadir al carrito</a>
-            </td>
-          </tr> -->
-
-          <!-- <img class="collar" src="@{/producto.rutaImagen1}" width="350" height="350" alt="Collar" title="Collar"/>
-          <img class="top" id="collarPerro" src="/imgTienda/collarPerro.png" width="350" height="350" alt="Collar" title="Collar"/>
-          <p>${producto.nombre}</p> -->
-        
-
-        <!-- <div class="imagen" id="arnes">
-          <img src="/images/imgTienda/arnes_negro.png" width="350" height="350" alt="Arnés" title="Arnés"/>
-          <img class="top"  src="/images/imgTienda/arnes_verde.webp" width="350" height="350" alt="Arnés" title="Arnés"/>
-          <p id="arnesPerro">Arnés</p>
-        </div>
-
-        <div class="imagen-noanimada" id="comidaPiensosAdulto">
-          <img src="/images/imgTienda/piensosAdulto.webp" width="350" height="350" alt="Piensos Adulto" title="Piensos Adulto"/>
-          <p>Piensos adulto</p>
-        </div>
-
-        <div class="imagen-noanimada" id="comidaPiensosCachorro">
-          <img src="/images/imgTienda/piensosCachorro.webp" width="350" height="350" alt="Piensos Cachorro" title="Piensos Cachorro"/>
-          <p>Piensos cachorro</p>
-        </div>
-
-        <div class="imagen" id="correa">
-          <img src="/images/imgTienda/correa_azul.png" width="350" height="350" alt="Correa" title="Correa"/>
-          <img class="top" id="correaPerro" src="/images/imgTienda/correaPerro.png" width="350" height="350" alt="Correa" title="Correa"/>
-          <p>Correa</p>
-        </div>  
-
-        <div class="imagen" id="chubasquero">
-          <img src="/images/imgTienda/chubasquero_morado.webp" width="350" height="350" alt="Chubasquero" title="Chubasquero"/>
-          <img class="top" id="chubasqueroPerro" src="/images/imgTienda/perro_chubasMor.webp" width="350" height="350" alt="Chubasquero" title="Chubasquero"/>
-          <p>Chubasquero</p>
-        </div> 
-      </div>
-    </div> -->
+          
   </main>
   <!-- <select id="select" onChange="changeCategory();">
     <option value="0">Todas</option>

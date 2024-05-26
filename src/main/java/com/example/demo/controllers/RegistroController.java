@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ public class RegistroController {
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("registroForm", new Usuario());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "registro/newFormView";
     }
 

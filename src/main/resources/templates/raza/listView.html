@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="/css/razas.css" />
   <link rel="stylesheet" href="/css/razasPag.css" />
   <title>GUAU</title>
+
+  <style>
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,86 +23,43 @@
   <main class="raza">
     <div class="fotosContainer">
       <div class="fotosPerro">
-        <!-- <div class="imagen" id="afgano">
-          <img src="/images/razas/afgano.png" width="350" height="350" alt="Afgano" title="Afgano" />
-          <p>Afgano</p>
-        </div> -->
-        <div th:each="raza : ${listaRazas}" class="imagen" th:id="${raza.nombre.toLowerCase().replace(' ', '_')}">
-          <!-- <img th:src="@{${raza.rutaImagen}}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
-          <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase()} + '.png'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
-          <img th:src="${getImageUrl(raza.nombre)}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" /> -->
+        <!-- <a th:each="raza : ${listaRazas}" th:href="${raza.url}" target="_blank">
+          <div class="imagen" th:id="${raza.nombre.toLowerCase().replace(' ', '_')}">
+            
+              <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
+              <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
+
+              <p sec:authorize="hasRole('ADMIN')">
+                  <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
+              </p>
               
-          <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="350" height="350" th:alt="${raza.nombre}" th:title="${raza.nombre}" />
-          <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
-          <!-- <p th:text="${'Esperanza de vida: ' + raza.esperanzaVida + ' años'}"></p>
-          <p th:text="${'Tamaño: ' + raza.tamanho}"></p> -->
-          <p sec:authorize="hasRole('ADMIN')">
-              <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
-          </p>
-          <p sec:authorize="hasRole('ADMIN')">
-              <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
-          </p>
-      </div>
+              <p sec:authorize="hasRole('ADMIN')">
+                  <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
+              </p>
 
-        <!-- <div class="imagen" id="akita">
-          <img src="/images/razas/akita.webp" width="350" height="350" alt="Akita" title="Akita" />
-          <p>Akita</p>
-        </div>
+          </div>
+        </a> -->
 
-        <div class="imagen" id="basenji">
-          <img src="/images/razas/basenji2.png" width="350" height="350" alt="Basenji" title="Basenji" / />
-          <p>Basenji</p>
-        </div>
+        <a th:each="raza : ${listaRazas}" th:href="@{/razas/detalle/{nombre}(nombre=${raza.nombre})}" >
+          <div class="imagen" th:id="${raza.nombre.toLowerCase().replace(' ', '_')}">
+              <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}"
+                  th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="350" height="350"
+                  th:alt="${raza.nombre}" th:title="${raza.nombre}" />
+              <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
 
-        <div class="imagen" id="basset">
-          <img src="/images/razas/basset.webp" width="350" height="350" alt="Basset Grifón" title="Basset Grifón" / />
-          <p id="basset">Basset Grifón</p>
-        </div>
+              <p sec:authorize="hasRole('ADMIN')">
+                  <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
+              </p>
+              
+              <p sec:authorize="hasRole('ADMIN')">
+                  <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
+              </p>
+          </div>
+        </a>
 
-        <div class="imagen" id="hound">
-          <img src="/images/razas/basset_hound.png" width="350" height="350" alt="Basset Hound" title="Basset Hound" / />
-          <p>Basset Hound</p>
-        </div>
-
-        <div class="imagen" id="beagle">
-          <img src="/images/razas/beagle.png" width="350" height="350" alt="Beagle" title="Beagle" / />
-          <p>Beagle</p>
-        </div>
-      </div> -->
 
       <div class="fotosPerro2">
-        <!-- <div class="imagen" id="bedlington">
-          <img src="/images/razas/bedlington.png" width="350" height="350" alt="Bedlington Terrier"
-            title="Bedlington Terrier" />
-          <p>Bedlington Terrier</p>
-        </div>
-
-        <div class="imagen" id="bichon">
-          <img src="/images/razas/bichon.webp" width="350" height="350" alt="Bichón Frisé" title="Bichón Frisé" />
-          <p>Bichón Frisé</p>
-        </div>
-
-        <div class="imagen" id="bloodhound">
-          <img src="/images/razas/bloodhound.png" width="350" height="350" alt="Bloodhound" title="Bloodhound" / />
-          <p>Bloodhound</p>
-        </div>
-
-        <div class="imagen" id="bobtail">
-          <img src="/images/razas/bobtail.png" width="350" height="350" alt="Bobtail" title="Bobtail" / />
-          <p>Bobtail</p>
-        </div>
-
-        <div class="imagen" id="collie">
-          <img src="/images/razas/border_collie.png" width="350" height="350" alt="Border Collie" title="Border Collie"
-            / />
-          <p>Border Collie</p>
-        </div>
-
-        <div class="imagen" id="boston">
-          <img src="/images/razas/boston_terrier.webp" width="350" height="350" alt="Boston Terrier" title="Boston Terrier"
-            / />
-          <p id="boston">Boston Terrier</p>
-        </div> -->
+        
       </div>
 
       <div class="enlaces">

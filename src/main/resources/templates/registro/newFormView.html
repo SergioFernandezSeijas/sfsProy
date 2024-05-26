@@ -4,30 +4,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/registro.css" />
+  <script src="/js/validarFormularioRegistro.js"></script>
   <title>GUAU</title>
+  <style>
+
+    
+  </style>
 </head>
 
 <body>
-  <h1>Nuevo usuario</h1>
-  <form method="post" action="#" th:action="@{/registro/nuevo/submit}" th:object="${registroForm}">
-    <input type="hidden" id="id" th:field="*{id}" /><br />
+  <head th:replace="~{/fragment.html::cabecera}"></head>
+  
+  <div class="contenedor">
+    <h1>Regístrese</h1>
+    <form method="post" action="#" th:action="@{/registro/nuevo/submit}" th:object="${registroForm}">
+      <input type="hidden" id="id" th:field="*{id}" /><br />
 
-    <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+      <div>
+        <label>Nombre de usuario:</label> <br> 
+        <input type="text" id="nombre" th:field="*{nombre}" required/><br />
+        <span id="mensajeError0"></span> 
+      </div>
+      <br />
 
-    <label>Email: <input type="email" id="email" th:field="*{email}" /></label><br />
+      <div>
+      <label>Email:</label> <br> 
+      <input type="email" id="email" th:field="*{email}" required/><br />
+      <span id="mensajeError1"></span> <br />
+      </div>
+      <br />
 
-    <label>Domicilio: <input type="text" id="domicilio" th:field="*{domicilio}" /></label><br />
+      <div>
+        <label>Domicilio:</label> <br> 
+        <input type="text" id="domicilio" th:field="*{domicilio}" required/><br />
+        <span id="mensajeError2"></span> <br />
+      </div>
+      <br />
 
-    <label>Contraseña:</label>
-      <input type="text" id="contrasenha" th:field="*{password}" /></label><br />
+      <div>
+        <label>Contraseña:</label> <br>
+        <input type="text" id="contrasenha" th:field="*{password}" required/></label><br />
+        <span id="mensajeError3"></span> <br />
+      </div>
+      <br />
 
-    <!-- Rol:<br />
-    <input type="radio" id="userRole" name="button1" th:value="${T(com.example.demo.domain.Rol).USUARIO}"
-      th:text="${T(com.example.demo.domain.Rol).USUARIO}" th:field="*{rol}" required/>
-      <br/> -->
+      <!-- Rol:<br />
+      <input type="radio" id="userRole" name="button1" th:value="${T(com.example.demo.domain.Rol).USUARIO}"
+        th:text="${T(com.example.demo.domain.Rol).USUARIO}" th:field="*{rol}" required/>
+        <br/> -->
 
-    <input type="submit" value="Enviar" />
-  </form>
+      <input type="submit" value="Enviar" id="enviar"/>
+    </form>
+  </div>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
 </body>
 
 </html>

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
     <h1>Nuevo producto</h1>
     <form method="post" action="#" th:action="@{/producto/nuevo/submit}" th:object="${productoForm}">
         <input type="hidden" id="id" th:field="*{id}" /><br />
@@ -33,6 +34,7 @@
         <input type="submit" value="Enviar" />
     </form>
     <a th:href="@{/producto/}">Inicio</a><br />
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
 </body>
 
 </html>

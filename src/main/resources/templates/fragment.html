@@ -13,95 +13,28 @@
 </head>
 
 <body>
-  <!-- <nav th:fragment="navegacion" class="navbar navbar-expand-sm navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- menú común para el público 
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" th:href="@{/}">
-                Inicio</a>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" th:href="@{/razas/}">
-                Razas</a>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" th:href="@{/producto/}">
-                Producto</a>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" th:href="@{/contacto/}">
-                Contacto</a>
-            </li>
-          
-  
-            <!-- menú de gestión de usuarios (solo administradores) 
-            <li sec:authorize="hasRole('ADMIN')" class="nav-item">
-              <a class="nav-link active" aria-current="page" th:href="@{/usuario/}">Usuarios</a>
-            </li>
-  
-            <!-- menú: Registrarse (solo si no autenticado) 
-            <li sec:authorize="!isAuthenticated()">
-              <a class="nav-item nav-link active" th:href="@{/registro/nuevo}">Registrarse</a>
-            </li>
-            <!-- menú: Iniciar sesión (solo si no autenticado) 
-            <li sec:authorize="!isAuthenticated()">
-              <a class="nav-item nav-link active" th:href="@{/signin}">Iniciar sesión</a>
-            </li>
-            <!-- menú: nombre-usuario (solo si autenticado) 
-            <li class="nav-item ms-md-auto dropdown" sec:authorize="isAuthenticated()">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <span sec:authentication="name"></span></a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Cambiar Contraseña</a>
-                </li>
-                <li>
-                  <form th:action="@{/logout}" method="post">
-                    <button class="dropdown-item" type="submit">
-                      Cerrar sesión
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> 
-  -->
   <header th:fragment="cabecera">
-    <img class="logo" src="/images/logoPerro.png" title="GUAU" />
+    <img class="logo" src="/images/inicio/logoPerro.png" title="GUAU" />
     <div id="cabecera">
       <div class="titulo">
-        <div class="nombre"><img src="/images/Gif_inicio.gif" /></div>
+        <div class="nombre"><img src="/images/inicio/Gif_inicio.gif" /></div>
 
-        <div class="idioma">
-          <a><img src="/images/idioma.png" /></a>
-        </div>
+        <!-- <div class="idioma">
+          <a><img src="/images/inicio/idioma.png" /></a>
+        </div> -->
 
         <div class="carrito" sec:authorize="hasAnyRole('USUARIO','ADMIN')">
-          <a th:href="@{/lineaPedido/pedido}"><img src="/images/boton_cesta_compra.png" /></a>
+          <a th:href="@{/lineaPedido/pedido}"><img src="/images/imgTienda/boton_cesta_compra.png" /></a>
         </div>
 
         <div class="perfil" sec:authorize="!isAuthenticated()">
-          <a th:href="@{/signin}"><img src="/images/boton_inicio_sesion.png" title="Iniciar Sesión/Registrarse" /></a>
+          <a th:href="@{/signin}"><img src="/images/inicio/boton_inicio_sesion.png" title="Iniciar Sesión/Registrarse" /></a>
         </div>
 
         <div sec:authorize="isAuthenticated()">
           <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <span sec:authentication="name"></span></a>
+            <span sec:authentication="name" id="userRegistrado"></span></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Editar perfil</a></li>
             <li>

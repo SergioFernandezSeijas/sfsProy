@@ -68,6 +68,14 @@ public class RazaController {
         return "redirect:/razas/";
     }
 
+    @GetMapping("/detalle/{nombre}")
+    public String showDogDetail(@PathVariable String nombre, Model model) {
+        Raza raza = razaService.obtenerPorNombre(nombre);
+        model.addAttribute("raza", raza);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
+        return "raza/detallesRaza"; 
+    }
+
     // public String getImageUrl(String razaNombre) {
     //     String[] formatos = {"png", "jpg", "webp"};
     //     for (String formato : formatos) {

@@ -53,12 +53,20 @@
     padding-top: 15px;
 }
 
+#piensos_adulto_img2 {
+    padding-top: 60px;
+}
+
 #piensos_cachorro {
     padding-top: 35px;
 }
 
 #piensos_cachorro_img1 {
     padding-top: 15px;
+}
+
+#piensos_cachorro_img2 {
+    padding-left: 10px;
 }
 
 #correa {

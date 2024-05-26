@@ -17,7 +17,7 @@
     <table>
       <thead>
         <tr>
-          <th>Id</th>
+          <!-- <th>Id</th> -->
           <th>Fecha</th>
           <th>Importe</th>
         </tr>
@@ -25,9 +25,9 @@
 
       <tbody>
         <tr th:each="pedido : ${listarPedidos}">
-          <td th:text="${pedido.id}">ID</td>
+          <!-- <td th:text="${pedido.id}">ID</td> -->
           <td th:text="${pedido.fecha}">Fecha</td>
-          <td th:text="${pedido.importe}">€</td>
+          <td th:text="${pedido.importe + ' €'}">€</td>
         </tr>
       </tbody>
     </table>

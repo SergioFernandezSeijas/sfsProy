@@ -4,11 +4,11 @@ function iniciar() {
 	document.getElementById("enviar").addEventListener('click',validarFormulario);
 }
 
-function validarAsunto() {
-	let elemento = document.getElementById("asunto");
+function validarUsuario() {
+	let elemento = document.getElementById("nombre");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error1(elemento, "Debe introducir un asunto");
+			error1(elemento, "Debe introducir un usuario");
 		}
 		return false;
 	}
@@ -19,10 +19,10 @@ function validarEmail() {
 	let elemento = document.getElementById("email");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error3(elemento, "Debe introducir un email");
+			error2(elemento, "Debe introducir un email");
 		}
-		else if (elemento.validity.typeMismatch) {
-            error3(elemento, "Debe introducir un email válido");
+        else if (elemento.validity.typeMismatch) {
+            error2(elemento, "Debe introducir un email válido");
         }
 		return false;
 	}
@@ -30,11 +30,22 @@ function validarEmail() {
 }
 
 
-function validarComentario() {
-	let elemento = document.getElementById("comentarios");
+function validarDomicilio() {
+	let elemento = document.getElementById("domicilio");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "Debe introducir un comentario");
+			error3(elemento, "Debe introducir un domicilio");
+		}
+		return false;
+	}
+	return true;
+}
+
+function validarContrasena() {
+	let elemento = document.getElementById("contrasenha");
+	if (!elemento.checkValidity()) {
+		if (elemento.validity.valueMissing) {
+			error4(elemento, "Debe introducir una contraseña");
 		}
 		return false;
 	}
@@ -43,7 +54,7 @@ function validarComentario() {
 
 function validarFormulario(e) {
 	eliminarError();
-	if (validarAsunto() && validarEmail() && validarComentario() && confirm("Desea enviar el formulario")) {
+	if (validarUsuario() && validarEmail() && validarDomicilio() && validarContrasena() && confirm("Desea enviar el formulario")) {
 		alert("Formulario enviado con exito");
 		return true;
 	}
@@ -66,6 +77,11 @@ function error2(elemento, mensaje) {
 
 function error3(elemento, mensaje) {
 	document.getElementById("mensajeError2").innerHTML = mensaje;
+	elemento.focus();
+}
+
+function error4(elemento, mensaje) {
+	document.getElementById("mensajeError3").innerHTML = mensaje;
 	elemento.focus();
 }
 

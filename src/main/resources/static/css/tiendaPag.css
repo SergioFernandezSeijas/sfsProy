@@ -1,9 +1,13 @@
+/* body {
+  overflow-y: hidden;
+} */
+
 .tienda {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  min-height: 68vh;
+  min-height: 66.5vh;
   margin-top: 22vh;
 }
 

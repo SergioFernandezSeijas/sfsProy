@@ -1,9 +1,13 @@
+/* body {
+  overflow-y: hidden;
+} */
+
 .raza {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  min-height: 68vh;
+  min-height: 68.1vh;
   margin-top: 22vh;
 }
 
@@ -29,7 +33,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-bottom: 3vh;
 }
 

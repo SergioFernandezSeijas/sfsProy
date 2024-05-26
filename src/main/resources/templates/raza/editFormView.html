@@ -8,11 +8,26 @@
 </head>
 
 <body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
     <h1>Editar raza</h1>
     <form method="post" action="#" th:action="@{/razas/editar/submit}" th:object="${raza}">
         <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" readonly/> </label><br />
 
+        <label>Origen: <input type="text" id="origen" th:field="*{origen}"/> </label><br />
+
+        <label>Tamaño: <input type="text" id="tamano" th:field="*{tamano}"/> </label><br />
+
+        <label>Peso: <input type="text" id="peso" th:field="*{peso}"/> </label><br />
+
+        <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}"/> </label><br />
+
+        <label>Actividad: <input type="text" id="actividad" th:field="*{actividad}"/> </label><br />
+
+        <label>Pelaje: <input type="text" id="pelaje" th:field="*{pelaje}"/> </label><br />
+
         <label>Puntuacion: <input type="number" id="puntuacion" th:field="*{puntuacion}"/> </label><br />
+
+        <label>Url: <input type="text" id="url" th:field="*{url}"/> </label><br />
         <!-- <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}" /></label><br />
         <label>Tamaño
             <select name="tamanho" th:field="*{tamanho}">
@@ -25,6 +40,7 @@
         <input type="submit" value="Enviar" />
     </form>
     <a th:href="@{/razas/}">Inicio</a><br />
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
 </body>
 
 </html>

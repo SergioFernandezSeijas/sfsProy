@@ -50,22 +50,29 @@ header {
   padding-left: 275px;
 }
 
-.idioma {
+/* .idioma {
   display: flex;
   align-items: center;
   justify-content: right;
   margin-right: 40px;
-}
+} */
 
 .carrito {
   display: flex;
   align-items: center;
   justify-content: right;
+  margin-right: 20px;
 }
 
 .perfil {
   margin-left: 40px;
-  margin-right: 40px;
+  margin-right: 80px;
+  display: flex;
+  align-items: center;
+}
+
+#userRegistrado {
+  margin-right: 20px;
   display: flex;
   align-items: center;
 }
@@ -258,11 +265,17 @@ div.final div {
     width: 350px;
   }
 
-  .idioma {
+  /* .idioma {
     margin-right: 15px;
     margin-left: 15px;
     display: flex;
     align-items: center;
+  }
+
+  */
+
+  #historia {
+    margin-top: 60px;
   }
 
   .perfil {
@@ -272,7 +285,17 @@ div.final div {
     align-items: center;
   }
 
-  #historia {
-    margin-top: 60px;
+  .carrito {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 0.5px;
+  }
+  
+  
+  #userRegistrado {
+    margin-right: 0.5px;
+    display: flex;
+    align-items: center;
   }
 }

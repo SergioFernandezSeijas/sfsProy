@@ -1,77 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/inicio.css" />
-    <link rel="stylesheet" href="/css/global.css" />
-    <title>GUAU</title>
-  </head>
 
-  <body>
-    <header th:replace="~{/fragment.html::cabecera}"></header>
-    <main class="adopta">
-      <h2>Lugares de adopción</h2>
-      <form
-        action="#"
-        method="post"
-        th:action="@{/adopta/}"
-        th:object="${formInfo}"
-      >
-        <select onchange="this.form.submit()" th:field="*{provincia}">
-          <option value="">selecciona una provincia...</option>
-          <option
-            th:each="adopta:${listaAdopta}"
-            th:value="${adopta}"
-            th:text="${adopta}"
-          ></option>
-        </select>
-      </form>
-      Provincia:
-      <span
-        th:if="${lugarSeleccionado}"
-        th:text="${lugarSeleccionado.provincia}"
-      ></span
-      ><br />
-      Nombre:
-      <span
-        th:if="${lugarSeleccionado}"
-        th:text="${lugarSeleccionado.nombre}"
-      ></span
-      ><br />
-      Ubicación:
-      <a
-        th:if="${lugarSeleccionado}"
-        th:href="${lugarSeleccionado.ubicacion}"
-        target="_blank"
-      >Accede al lugar</a
-      ><br />
-      Contacto:
-      <span
-        th:if="${lugarSeleccionado}"
-        th:text="${lugarSeleccionado.contacto}"
-      ></span
-      ><br />
-      Horario:
-      <span
-        th:if="${lugarSeleccionado}"
-        th:text="${lugarSeleccionado.horario}"
-      ></span
-      ><br />
-      Url:
-      <a
-        th:if="${lugarSeleccionado}"
-        th:href="${lugarSeleccionado.url}"
-        target="_blank"
-      >Enlace al sitio web</a
-      ><br />
-    </main>
-    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
-      <script>
-        function toggleMenu() {
-          var nav = document.querySelector("nav ul");
-          nav.classList.toggle("open");
-        }
-      </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/inicio.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>GUAU</title>
+
+  <style>
+    h2 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    select {
+      margin-left: 10%;
+      width: 80%;
+      font-size: 25px;
+    }
+
+    .adopta div {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px; 
+    }
+
+    .adopta img {
+      margin-right: 20px;
+    }
+
+    a {
+      color: blue;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header th:replace="~{/fragment.html::cabecera}"></header>
+  <main class="adopta">
+    <h2>Lugares de adopción</h2>
+    <form action="#" method="post" th:action="@{/adopta/}" th:object="${formInfo}">
+      <select onchange="this.form.submit()" th:field="*{provincia}">
+        <option value="">selecciona una provincia...</option>
+        <option th:each="adopta:${listaAdopta}" th:value="${adopta}" th:text="${adopta}"></option>
+      </select>
+    </form>
+    <br>
+
+    <div>
+      <!-- <span>Provincia:</span>  -->
+      <img src="/images/adopcion/espana.png" width="100px" height="100px" title="Provincia">
+      <span th:if="${lugarSeleccionado}" th:text="${lugarSeleccionado.provincia}"></span><br />
+    </div>
+    
+    <div>
+      <!-- <span>Nombre:</span> -->
+      <img src="/images/adopcion/local.png" width="80px" height="80px" title="Nombre">
+      <span th:if="${lugarSeleccionado}" th:text="${lugarSeleccionado.nombre}"></span><br />
+    </div>
+
+    <div>
+      <!-- <span>Ubicación:</span> -->
+      <img src="/images/adopcion/ubi.png" width="80px" height="80px" title="Ubicación">
+      <a th:if="${lugarSeleccionado}" th:href="${lugarSeleccionado.ubicacion}" target="_blank">Accede al lugar</a><br />
+    </div>
+    
+    <div>
+      <!-- <span>Contacto:</span> -->
+      <img src="/images/adopcion/telefono.png" width="60px" height="60px" title="Contacto">
+      <span th:if="${lugarSeleccionado}" th:text="${lugarSeleccionado.contacto}"></span><br />
+    </div>
+
+    <div>
+      <!-- <span>Horario:</span> -->
+      <img src="/images/adopcion/reloj.png" width="50px" height="50px" title="Horario">
+      <span th:if="${lugarSeleccionado}" th:text="${lugarSeleccionado.horario}"></span><br />
+    </div>
+
+    <div>
+      <!-- <span>Url:</span> -->
+      <img src="/images/adopcion/url.png" width="60px" height="60px" title="URL">
+      <a th:if="${lugarSeleccionado}" th:href="${lugarSeleccionado.url}" target="_blank">Enlace al sitio web</a><br />
+    </div>
+  </main>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector("nav ul");
+      nav.classList.toggle("open");
+    }
+  </script>
+</body>
+
 </html>
