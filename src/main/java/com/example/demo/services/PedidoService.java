@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.domain.LineaPedido;
 import com.example.demo.domain.Pedido;
+import com.example.demo.domain.Producto;
 import com.example.demo.domain.Usuario;
 import com.example.demo.repositories.LineaPedidoRepository;
 import com.example.demo.repositories.PedidoRepository;
+import com.example.demo.repositories.ProductoRepository;
 import com.example.demo.repositories.UsuarioRepository;
 
 @Service
@@ -26,6 +29,9 @@ public class PedidoService {
 
     @Autowired
     UsuarioService usuarioService;
+
+    @Autowired
+    ProductoRepository productoRepository;
 
     public Pedido añadir(Pedido pedido) {
         Usuario usuarioConectado = usuarioService.obtenerUsuarioConectado();
@@ -69,7 +75,32 @@ public class PedidoService {
         pedidoRepository.deleteById(id);
     }
 
+    // public void cerrar(Pedido pedido) {
+    //     pedido.setComprado(true);
+    //     pedidoRepository.save(pedido);
+    // }
+
+    @Transactional
     public void cerrar(Pedido pedido) {
+        List<LineaPedido> lineasPedido = lineaPedidoRepository.findByPedido(pedido);
+
+        // Verificar stock
+        for (LineaPedido lp : lineasPedido) {
+            Producto producto = lp.getProducto();
+            if (producto.getStock() < lp.getCantidad()) {
+                throw new IllegalArgumentException("No hay suficiente stock para el producto: " + producto.getNombre());
+            }
+        }
+
+        // Reducir stock
+        for (LineaPedido lp : lineasPedido) {
+            Producto producto = lp.getProducto();
+            producto.setStock(producto.getStock() - lp.getCantidad());
+            System.out.println("--------Stock----------------");
+            System.out.println(producto.getStock());
+            // Guardar el producto con el stock actualizado
+            productoRepository.save(producto);
+        }
         pedido.setComprado(true);
         pedidoRepository.save(pedido);
     }

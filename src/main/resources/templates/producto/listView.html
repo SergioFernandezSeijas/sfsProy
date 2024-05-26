@@ -12,6 +12,7 @@
 
 <body>
   <head th:replace="~{/fragment.html::cabecera}"></head>
+
   <main class="tienda">
     <div class="fotosContainer">
       <div class="fotosTienda">
@@ -32,9 +33,10 @@
             <input type="number" name="cantidad" id="cantidad_${producto.id}" min="1" value="1">
             <br>
     
-            <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item">
+            <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item" th:if="${producto.stock > 0}">
               <a th:href="@{/producto/comprar/{id}(id=${producto.id})}" class="agregar-carrito">Añadir al carrito</a>
             </td>
+            <p th:if="${producto.stock == 0}" style="color: red;">Producto agotado</p>
             <br/>
             <br/>
 
@@ -46,6 +48,8 @@
             <td sec:authorize="hasRole('ADMIN')" class="nav-item">
               <a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar</a>
             </td>
+
+            
         </div>
   
 
@@ -91,6 +95,10 @@
   </td>
 
   <p style="color: red" th:text="${msg}">mensaje</p>
+  
+  <div th:if="${errorMsg}" class="alert alert-danger">
+      <p th:text="${errorMsg}"></p>
+  </div>
 
 
   <footer th:replace="~{/fragment2.html::piePagina}"></footer>

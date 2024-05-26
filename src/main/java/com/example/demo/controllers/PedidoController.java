@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.domain.Pedido;
 import com.example.demo.domain.Usuario;
@@ -70,11 +71,30 @@ public class PedidoController {
         return "redirect:/usuario/";
     }
 
+//    @GetMapping("/cerrar")
+//    public String getCerrar() {
+//        Usuario usuarioConec = usuarioService.obtenerUsuarioConectado();
+//        Pedido ped = pedidoRepository.findByUsuarioAndComprado(usuarioConec, false);
+//        pedidoService.cerrar(ped);
+//        return "redirect:/producto/";
+//    }
+
+
     @GetMapping("/cerrar")
-    public String getCerrar() {
-        Usuario usuarioConec = usuarioService.obtenerUsuarioConectado();
-        Pedido ped = pedidoRepository.findByUsuarioAndComprado(usuarioConec, false);
-        pedidoService.cerrar(ped);
+    public String getCerrar(RedirectAttributes redirectAttributes) {
+        //RedirectAttributes, lo utilizo para mostrar mensajes de confirmación o error cuando se cierre el pedido
+        Usuario usuarioConectado = usuarioService.obtenerUsuarioConectado();
+        Pedido pedido = pedidoRepository.findByUsuarioAndComprado(usuarioConectado, false);
+        
+        if (pedido != null) {
+            try {
+                pedidoService.cerrar(pedido);
+                redirectAttributes.addFlashAttribute("msg", "Pedido cerrado exitosamente.");
+            } catch (IllegalArgumentException e) {
+                redirectAttributes.addFlashAttribute("errorMsg", e.getMessage());
+            }
+        }
+        
         return "redirect:/producto/";
     }
     

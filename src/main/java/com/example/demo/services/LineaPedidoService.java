@@ -44,7 +44,7 @@ public class LineaPedidoService {
         // Ahora que las modificaciones en las líneas de pedido se han guardado en la base de datos, actualiza el pedido
         pedidoService.actualizar(pedidoActual);
         
-        // Retorna la línea de pedido añadida o actualizada
+        // Devuelve la línea de pedido añadida o actualizada
         return lineaPedido;
     }
 
