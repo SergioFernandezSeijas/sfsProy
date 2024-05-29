@@ -55,7 +55,6 @@ function validarContrasena() {
 function validarFormulario(e) {
 	eliminarError();
 	if (validarUsuario() && validarEmail() && validarDomicilio() && validarContrasena() && confirm("Desea enviar el formulario")) {
-		alert("Formulario enviado con exito");
 		return true;
 	}
 	else {

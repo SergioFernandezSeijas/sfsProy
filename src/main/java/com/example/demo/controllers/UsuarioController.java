@@ -3,10 +3,15 @@ package com.example.demo.controllers;
 import java.time.Year;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,11 +58,43 @@ public class UsuarioController {
         }
     }
 
+
     @PostMapping("/editar/submit")
     public String getEditSubmit(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "usuario/editFormView";
+        }
         usuarioService.editar(usuario);
         return "redirect:/usuario/";
     }
+
+    @ModelAttribute
+    public void addAttributes(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails != null) {
+            Usuario usuarioConectado = usuarioService.obtenerPorEmail(userDetails.getUsername());
+            model.addAttribute("usuarioConectado", usuarioConectado);
+        }
+    }
+
+    @GetMapping("/perfil/editar")
+    public String editarPerfil(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails != null) {
+            Usuario usuarioConectado = usuarioService.obtenerPorEmail(userDetails.getUsername());
+            model.addAttribute("usuarioForm", usuarioConectado);
+            return "usuario/editarPerfilView";
+        }
+        return "redirect:/login";
+    }
+
+    @PostMapping("/perfil/editar/submit")
+    public String editarPerfilSubmit(@Valid @ModelAttribute("usuarioForm") Usuario usuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "usuario/editarPerfilView";
+        }
+        usuarioService.editar(usuario);
+        return "redirect:/";
+    }
+
 
     @GetMapping("/borrar/{id}")
     public String borrar(@PathVariable long id, Model model) {
@@ -65,3 +102,27 @@ public class UsuarioController {
         return "redirect:/usuario/";
     }
 }
+
+
+    // @GetMapping("/editarPerfil")
+    // public String editProfile(Model model) {
+    //     Usuario usuario = usuarioService.obtenerUsuarioConectado();
+
+    //     if (usuario != null) {
+    //         model.addAttribute("usuarioForm", usuario);
+    //         System.out.println("--------------------------------");
+    //         System.out.println(usuario);
+    //         return "usuario/editarUsuarioConectado";
+    //     } else {
+    //         System.out.println("--------------------------");
+    //         System.out.println("FALLA OASOAOAFOA");
+    //         return "redirect:/producto/";
+    //     }
+    // }
+
+
+// @PostMapping("/editarPerfil/submit")
+    // public String getEditarSubmit(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
+    //     usuarioService.editarUsuarioConectado(usuario);
+    //     return "redirect:/producto/";
+    // }

@@ -6,15 +6,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/global.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
+
+  <style>
+    h1 {
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 38px;
+    }
+
+    #info {
+        border: 1px solid black;
+        width: 70%;
+        margin-left: 15%;
+        font-size: 20px;
+    }
+
+    #info td{
+        padding: 10px;
+    }
+
+    td {
+        font-weight: 700;
+    }
+    
+    td {
+        text-align: center;
+        /* border-right: 1px solid black; */
+    }
+    
+    td:last-child {
+      text-align: center;
+    }
+
+
+    th {
+      border-bottom: 1px solid black;
+    }
+
+    /* th {
+      border-right: 1px solid black;
+    } */
+
+    th:first-child {
+      border-right: 1px solid black;
+    }
+
+    tr:nth-child(odd) {
+        background-color: wheat;
+    }
+
+    tr:nth-child(even) {
+        background-color: whitesmoke; 
+    }
+
+  @media (max-width: 950px) {
+  #info, #info thead, #info tbody, #info th, #info td, #info tr {
+    display: block;
+  }
+
+  #info thead tr {
+    display: none;
+  }
+
+  #info tr {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #info td {
+    display: flex;
+    justify-content: space-between;
+    /* padding-left: 50%; */
+    position: relative;
+  }
+
+  #info td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+  }
+
+  #nuevoUsuario {
+    display: block;
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+</style>
 </head>
 
 <body>
-
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="usuario">
     <h1>Listado de usuarios</h1>
-    <table>
+    <table id="info">
       <thead>
         <tr>
           <th>ID</th>
@@ -48,9 +138,11 @@
         </tr>
       </tbody>
     </table>
-    <a href="/usuario/nuevo">Nuevo usuario</a><br />
+    <br>
+    <a href="/usuario/nuevo" id="nuevoUsuario">Nuevo usuario</a><br />
     <p style="color: red" th:text="${msg}">mensaje</p>
   </main>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>
     function toggleMenu() {
       var nav = document.querySelector("nav ul");

@@ -36,12 +36,15 @@
             aria-haspopup="true" aria-expanded="false">
             <span sec:authentication="name" id="userRegistrado"></span></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-            <li>
+            <li><a class="dropdown-item" href="/usuario/perfil/editar">Editar perfil</a></li>
+            <!-- <li>
               <a class="dropdown-item" href="#">Cambiar Contraseña</a>
-            </li>
+            </li> -->
             <li sec:authorize="hasRole('ADMIN')">
               <a class="dropdown-item" th:href="@{/usuario/}">Usuarios</a>
+            </li>
+            <li sec:authorize="hasRole('ADMIN')">
+              <a class="dropdown-item" th:href="@{/categorias/}">Categorias</a>
             </li>
             <li>
               <form th:action="@{/logout}" method="post">

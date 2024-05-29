@@ -2,6 +2,7 @@
     overflow: hidden;
     min-height: 68vh;
     margin-top: 22vh;
+    font-size: 20px;
 }
 
 .newPedido {
@@ -14,12 +15,34 @@
     overflow: hidden;
     min-height: 68vh;
     margin-top: 22vh;
+    font-size: 20px;
+}
+
+#nuevoUsuario {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#nuevaCategoria {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .valUsuario {
     overflow: hidden;
     min-height: 68vh;
     margin-top: 22vh;
+    font-size: 20px;
 }
 
 .valProducto {

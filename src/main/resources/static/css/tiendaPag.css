@@ -18,7 +18,7 @@
 }
 
 .fotosContainer p {
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .fotosTienda {
@@ -76,6 +76,20 @@ div.finalTienda p {
 
 div.finalTienda div {
   display: block;
+}
+
+#nuevoProducto {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#valoracion, #addCarro {
+  font-size: 21px;
 }
 
 

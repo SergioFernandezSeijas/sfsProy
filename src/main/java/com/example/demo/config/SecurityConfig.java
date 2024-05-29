@@ -37,7 +37,7 @@ public class SecurityConfig {
                                                 .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
                 http.authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/","/razas/","/razas/detalle/**","/producto/","/categoria/", "/valoraciones/producto/**", "/registro/nuevo/**","/historia","/motivo","/veterinario","/adopta/", "/contacto/**").permitAll()
-                                .requestMatchers("/pedido/**","/lineaPedido/**","/valoraciones/usuario/**","/valoraciones/nuevo/**","/valoraciones/nuevo/**","/valoraciones/borrar/**")
+                                .requestMatchers("/pedido/**","/lineaPedido/**","/valoraciones/usuario/**","/valoraciones/nuevo/**","/valoraciones/nuevo/**","/valoraciones/borrar/**","/usuario/perfil/editar", "/usuario/perfil/editar/submit")
                                 .hasAnyRole("USUARIO","ADMIN")
                                 .requestMatchers("/usuario/**","/categorias/**")
                                 .hasRole("ADMIN")

@@ -6,15 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/global.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
+
+  <style>
+    h1 {
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 38px;
+    }
+
+    #info {
+        border: 1px solid black;
+        width: 70%;
+        margin-left: 15%;
+        font-size: 30px;
+    }
+
+    #info td{
+        padding: 10px;
+    }
+
+    a {
+        color: black;
+    }
+
+    td {
+        font-weight: 700;
+    }
+    
+    td {
+        text-align: center;
+        border-right: 1px solid black;
+    }
+
+
+    th {
+      border-bottom: 1px solid black;
+    }
+
+    th:first-child {
+      border-right: 1px solid black;
+    }
+
+    tr:nth-child(odd) {
+        background-color: wheat;
+    }
+
+    tr:nth-child(even) {
+        background-color: whitesmoke; 
+    }
+  </style>
 </head>
 
 <body>
 
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="pedido">
-    <h1>Listado de pedidos del usuario</h1>
-    <table>
+    <!-- <a th:href="@{/usuario/}" id="volver">Volver</a><br /> -->
+    <h1 th:text="'Pedidos de ' + ${usuario.email}">*</h1>
+    <table id="info">
       <thead>
         <tr>
           <!-- <th>Id</th> -->
@@ -32,6 +83,7 @@
       </tbody>
     </table>
   </main>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>
     function toggleMenu() {
       var nav = document.querySelector("nav ul");

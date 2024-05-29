@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/registro.css" />
   <script src="/js/validarFormularioRegistro.js"></script>
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
   <style>
 
@@ -19,6 +20,9 @@
   
   <div class="contenedor">
     <h1>Regístrese</h1>
+    <div th:if="${error}" class="error">
+      <p th:text="${error}"></p>
+    </div>
     <form method="post" action="#" th:action="@{/registro/nuevo/submit}" th:object="${registroForm}">
       <input type="hidden" id="id" th:field="*{id}" /><br />
 

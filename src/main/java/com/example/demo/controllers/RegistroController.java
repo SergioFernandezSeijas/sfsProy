@@ -31,10 +31,27 @@ public class RegistroController {
         return "registro/newFormView";
     }
 
-    @PostMapping("/nuevo/submit")  
+    // @PostMapping("/nuevo/submit")  
+    // public String nuevo(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
+    //     usuario.setRol(Rol.USUARIO);
+    //     usuarioService.añadir(usuario);
+    //     return "redirect:/usuario/";
+    // }
+
+    @PostMapping("/nuevo/submit")
     public String nuevo(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("error", "Errores en el formulario");
+            return "registro/newFormView";
+        }
         usuario.setRol(Rol.USUARIO);
-        usuarioService.añadir(usuario);
+        try {
+            usuarioService.añadir(usuario);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("registroForm", usuario);
+            model.addAttribute("error", e.getMessage());
+            return "registro/newFormView";
+        }
         return "redirect:/usuario/";
     }
 

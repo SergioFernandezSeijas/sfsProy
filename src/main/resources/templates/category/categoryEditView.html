@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-  <body>
-    <h1>Editar Categoría</h1>
-    <form method="post" action="#" th:action="@{/categorias/edit/submit}"
-            th:object="${categoriaForm}">
-            <label>Id:<input type="text" id="id" th:field="*{id}" readonly/> </label><br/>
-            <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
-            <input type="submit" value="Enviar" />
-    </form>
-  </body>
+<head>
+  <link rel="stylesheet" href="/css/formulario.css">
+  <script src="/js/vistaMovil.js"></script>
+  <title>GUAU</title>
+</head>
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main class="formulario">
+      <h1>Editar Categoría</h1>
+      <form method="post" action="#" th:action="@{/categorias/edit/submit}"
+              th:object="${categoriaForm}">
+              <label>Id:<input type="text" id="id" th:field="*{id}" readonly/> </label><br/>
+              <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+              <input type="submit" value="Enviar" id="enviar"/>
+      </form>
+      <a th:href="@{/categorias/}" id="volver">Volver</a><br />
+    </main>
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+</body>
 </html>

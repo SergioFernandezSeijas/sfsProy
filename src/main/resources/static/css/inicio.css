@@ -199,6 +199,7 @@ div.final div {
 .enlFinal {
   text-decoration: none;
   color: yellow;
+  font-size: 20px;
 }
 
 .enlFinal:hover {

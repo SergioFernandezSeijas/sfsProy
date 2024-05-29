@@ -57,6 +57,7 @@ public class ValoracionController {
         model.addAttribute("valoracionesForm", valoracion);
         model.addAttribute("listaUsuarios", usuarioService.obtenerTodos());
         model.addAttribute("listaProductos", productoService.obtenerTodos());
+        model.addAttribute("producto", p);
         return "valoracion/valNewFormView";
     }
 

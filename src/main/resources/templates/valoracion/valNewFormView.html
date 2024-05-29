@@ -6,23 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/global.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
+
+  <style>
+    h1 {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 38px;
+    }
+  </style>
 </head>
 
 <body>
 
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="newVal">
-    <h1>Valorar</h1>
+    <!-- <h1>Valorar</h1> -->
+    <h1 th:text="'Valorar ' + ${producto.nombre}">Producto</h1>
     <form method="post" action="#" th:action="@{/valoraciones/nuevo/submit}" th:object="${valoracionesForm}">
 
-      Producto:<br />
+      <!-- Producto:<br /> -->
       <input type="hidden" th:field="*{producto}"><br />
       <label>Puntuacion:<input type="number" id="puntuacion" th:field="*{puntuacion}" /></label><br />
       <label>Texto:<input type="text" id="texto" th:field="*{texto}" /></label><br />
       <input type="submit" value="Enviar" />
     </form>
   </main>
+  <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>
     function toggleMenu() {
       var nav = document.querySelector("nav ul");

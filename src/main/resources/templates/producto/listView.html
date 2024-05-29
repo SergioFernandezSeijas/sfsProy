@@ -7,7 +7,62 @@
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/tienda.css" />
   <link rel="stylesheet" href="/css/tiendaPag.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
+  <style>
+    .imagen {
+      background-color: wheat;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      /* margin: 15px; */
+      padding: 20px;
+      /* text-align: center; */
+      width: 200px;
+    }
+
+    .imagen input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    #valoracion {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      background-color: #007bff;
+    }
+
+    #valoracion:hover {
+      background-color: #0056b3;
+    }
+
+    #addCarro {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      background-color: #28a745;
+    }
+
+    #addCarro:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,23 +77,25 @@
             <img th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img1'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
             <img class="top" th:src="@{'/images/imgTienda/' + ${producto.nombre.toLowerCase().replace(' ', '_')} + '1.png'}" th:id="${producto.nombre.toLowerCase().replace(' ', '_') + '_img2'}"  th:alt="${producto.nombre}" th:title="${producto.nombre}" />
             <p th:text="${producto.nombre}" th:id="${producto.nombre.toLowerCase().replace(' ', '_')}"></p>
-            <p th:text="${producto.precio + ' €'}">€</p> <br/> <br/> 
+            <p th:text="${producto.precio + ' €'}">€</p> 
     
-            <td>
-              <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}">Valoraciones</a>
-            </td>
-
             <br>
 
             <input type="number" name="cantidad" id="cantidad_${producto.id}" min="1" value="1">
             <br>
     
             <td sec:authorize="hasAnyRole('ADMIN','USUARIO')" class="nav-item" th:if="${producto.stock > 0}">
-              <a th:href="@{/producto/comprar/{id}(id=${producto.id})}" class="agregar-carrito">Añadir al carrito</a>
+              <a th:href="@{/producto/comprar/{id}(id=${producto.id})}" class="agregar-carrito" id="addCarro">Añadir al carrito</a>
             </td>
             <p th:if="${producto.stock == 0}" style="color: red;">Producto agotado</p>
-            <br/>
-            <br/>
+
+            <br>
+
+            <td>
+              <a th:href="@{/valoraciones/producto/{id}(id=${producto.id})}" id="valoracion">Valoraciones</a>
+            </td>
+
+            <br><br>
 
             <td sec:authorize="hasRole('ADMIN')" class="nav-item">
               <a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar</a>
@@ -71,7 +128,7 @@
         var agregarCarritoBtns = document.querySelectorAll('.agregar-carrito');
         agregarCarritoBtns.forEach(function(btn) {
             btn.addEventListener('click', function(event) {
-                event.preventDefault(); // Evitar que el enlace se siga
+                event.preventDefault();
 
                 var cantidadInput = event.target.parentNode.querySelector('input[type="number"]');
                 var cantidad = cantidadInput.value;
@@ -85,14 +142,15 @@
   <!-- <td sec:authorize="hasRole('USUARIO')">
     <a href="/lineaPedido/pedido">Ver carrito</a><br />
   </td> -->
+  <br>
 
   <td sec:authorize="hasRole('ADMIN')">
-    <a href="/producto/nuevo">Nuevo producto</a><br />
+    <a href="/producto/nuevo" id="nuevoProducto">Nuevo producto</a><br />
   </td>
 
-  <td sec:authorize="hasRole('ADMIN')">
+  <!-- <td sec:authorize="hasRole('ADMIN')">
     <a href="/usuario/">Acceder a usuarios</a>
-  </td>
+  </td> -->
 
   <p style="color: red" th:text="${msg}">mensaje</p>
   
@@ -103,12 +161,6 @@
 
   <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   
-  <script>
-    function toggleMenu() {
-      var nav = document.querySelector("nav ul");
-      nav.classList.toggle("open");
-    }
-  </script>
 </body>
 
 </html>

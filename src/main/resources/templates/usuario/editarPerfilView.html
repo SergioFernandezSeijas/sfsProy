@@ -10,8 +10,8 @@
 <body>
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="formulario">
-        <h1>Editar usuario</h1>
-        <form method="post" action="#" th:action="@{/usuario/editar/submit}" th:object="${usuarioForm}">
+        <h1>Editar perfil</h1>
+        <form th:action="@{/usuario/perfil/editar/submit}" th:object="${usuarioForm}" method="post">
             <label>Id: <input type="text" id="id" th:field="*{id}" readonly/> </label><br />
 
             <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
@@ -26,7 +26,6 @@
             
             <input type="submit" value="Enviar" id="enviar"/>
         </form>
-        <a th:href="@{/usuario/}" id="volver">Volver</a><br />
     </main>
     <footer th:replace="~{/fragment2.html::piePagina}"></footer>
 </body>

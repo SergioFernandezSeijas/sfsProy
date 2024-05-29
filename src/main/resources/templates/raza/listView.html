@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/razas.css" />
   <link rel="stylesheet" href="/css/razasPag.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
 
   <style>
-    a {
+    /* a {
       text-decoration: none;
       color: black;
-    }
+    } */
   </style>
 </head>
 
@@ -71,18 +72,15 @@
     </div>
   </main>
 
+  <br>
+
   <td sec:authorize="hasRole('ADMIN')">
-    <a href="/razas/nuevo">Nueva raza de perro</a><br />
+    <a href="/razas/nuevo" id="nuevaRaza">Nueva raza de perro</a><br />
   </td>
 
 
   <footer th:replace="~{/fragment2.html::piePagina}"></footer>
-  <script>
-    function toggleMenu() {
-      var nav = document.querySelector("nav ul");
-      nav.classList.toggle("open");
-    }
-  </script>
+
 </body>
 
 </html>

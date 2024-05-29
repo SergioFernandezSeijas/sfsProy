@@ -37,6 +37,7 @@ public class PedidoController {
     @GetMapping("/{id}")
     public String mostrar(@PathVariable Long id, Model model) {
         model.addAttribute("listarPedidos", pedidoService.obtenerPorUsuario(id));
+        model.addAttribute("usuario", usuarioService.obtenerPorId(id));
         return "pedido/listView";
     }
 
@@ -45,6 +46,7 @@ public class PedidoController {
         Usuario usuarioConec = usuarioService.obtenerUsuarioConectado();
         List<Pedido> listaPedidos = pedidoRepository.findByUsuario(usuarioConec);
         model.addAttribute("listarPedidos", listaPedidos);
+        model.addAttribute("usuario", usuarioConec);
         model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "pedido/listView";
     }

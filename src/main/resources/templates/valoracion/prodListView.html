@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/inicio.css" />
   <link rel="stylesheet" href="/css/global.css" />
+  <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
 </head>
 
@@ -14,11 +15,11 @@
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="valProducto">
     <h1>Listado de usuarios de un producto</h1>
-    <h2 th:text="'Producto: ' + ${producto.nombre}">Producto</h2>
+    <h2 th:text="'Valoraciones del producto: ' + ${producto.nombre}">Producto</h2>
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Nombre</th>
           <th>Puntuacion</th>
           <th>Texto</th>
@@ -27,7 +28,7 @@
       </thead>
       <tbody>
         <tr th:each="valoracion : ${listaValoracion}">
-          <td th:text="${valoracion.usuario.id}">Id</td>
+          <!-- <td th:text="${valoracion.usuario.id}">Id</td> -->
           <td th:text="${valoracion.usuario.nombre}">nombre</td>
           <td th:text="${valoracion.puntuacion}">Puntuacion</td>
           <td th:text="${valoracion.texto}">Texto</td>
