@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/razas.css" />
+    <link rel="stylesheet" href="/css/razasPag.css" />
+    <script src="/js/vistaMovil.js"></script>
+    <title>GUAU</title>
+
+    <style>
+        /* .resultadoRaza {
+            text-align: center;
+            height: 900px;
+            overflow-y: scroll;
+        } */
+
+        .resultadoRaza p {
+            text-align: center;
+            color: black;
+        }
+
+        .cadaPerro {
+            border: 1px solid black;
+            width: 250px;
+            margin-left: 45%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main class="usuario">
+        <h1>Resultado del Test</h1>
+        <p>Puntuación obtenida: <span th:text="${puntuacion}"></span></p>
+        <h2>Razas Recomendadas</h2>
+        <!-- <ul>
+            <li th:each="raza : ${razasRecomendadas}" th:text="${raza.nombre}"></li>
+        </ul>
+        <a href="/test/">Volver al Test</a> -->
+        <div class="resultadoRaza">
+            <div class="fotosPerro">
+                <a th:each="raza : ${razasRecomendadas}" th:href="@{/razas/detalle/{nombre}(nombre=${raza.nombre})}" >
+                        <div class="imagen" th:id="${raza.nombre.toLowerCase().replace(' ', '_')}">
+                            <img th:src="@{'/images/razas/' + ${raza.nombre.toLowerCase().replace(' ', '_')} + '.png'}"
+                                th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_img'}" width="250" height="250"
+                                th:alt="${raza.nombre}" th:title="${raza.nombre}" />
+                            <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
+                
+                            <!-- <p sec:authorize="hasRole('ADMIN')">
+                                <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
+                            </p>
+                            
+                            <p sec:authorize="hasRole('ADMIN')">
+                                <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
+                            </p> -->
+                        </div>
+                </a>
+            </div>    
+        </div>
+        
+    </main>
+    
+    
+
+    <!-- <h1>Resultados del Test</h1>
+    <p>Las razas de perro que coinciden con tu puntuación son:</p>
+    <ul>
+        <li th:each="raza : ${razas}" th:text="${raza.nombre}"></li>
+    </ul> -->
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+</body>
+</html>

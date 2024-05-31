@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import com.example.demo.domain.Raza;
 import com.example.demo.services.RazaService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RequestMapping("/razas")
@@ -68,20 +69,37 @@ public class RazaController {
         return "redirect:/razas/";
     }
 
+    //METODO IMPORTANTE
+    // @GetMapping("/detalle/{nombre}")
+    // public String showDogDetail(@PathVariable String nombre, Model model) {
+    //     Raza raza = razaService.obtenerPorNombre(nombre);
+    //     model.addAttribute("raza", raza);
+    //     model.addAttribute("anhoActual", "©" + Year.now().getValue());
+    //     return "raza/detallesRaza"; 
+    // }
+
     @GetMapping("/detalle/{nombre}")
-    public String showDogDetail(@PathVariable String nombre, Model model) {
+    public String showDogDetail(@PathVariable String nombre, Model model, HttpServletRequest request) {
         Raza raza = razaService.obtenerPorNombre(nombre);
         model.addAttribute("raza", raza);
+        
+        // Recupera la puntuación del test del localStorage
+        Integer puntuacionTest = (Integer) request.getSession().getAttribute("puntuacionTest");
+        if (puntuacionTest != null) {
+            model.addAttribute("puntuacion", puntuacionTest);
+        }
+
         model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "raza/detallesRaza"; 
     }
+
 
     // public String getImageUrl(String razaNombre) {
     //     String[] formatos = {"png", "jpg", "webp"};
     //     for (String formato : formatos) {
     //         String ruta = "/images/razas/" + razaNombre.toLowerCase().replace(' ', '_') + "." + formato;
     //     }
-    //     return "/images/razas/default.png"; // Por ejemplo, una imagen de fallback llamada default.png
+    //     return "/images/razas/default.png"; 
     // }
     
 }

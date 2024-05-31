@@ -46,6 +46,9 @@
             <li sec:authorize="hasRole('ADMIN')">
               <a class="dropdown-item" th:href="@{/categorias/}">Categorias</a>
             </li>
+            <li sec:authorize="hasRole('ADMIN')">
+              <a class="dropdown-item" th:href="@{/contacto/comentarios}">Comentarios</a>
+            </li>
             <li>
               <form th:action="@{/logout}" method="post">
                 <button class="dropdown-item" type="submit">

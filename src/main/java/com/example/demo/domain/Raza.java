@@ -39,7 +39,6 @@ public class Raza {
     private String pelaje;
 
     @Column(name = "puntuacion")
-    @Max(value = 5)
     private Integer puntuacion;
 
     @Column(name = "url")

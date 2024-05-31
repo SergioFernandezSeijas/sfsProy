@@ -9,10 +9,18 @@
     <script src="/js/vistaMovil.js"></script>
     <title>GUAU</title>
     <style>
-        main {
+        /* main {
             margin-top: 250px;
             margin-bottom: 121px;
+        } */
+
+        .detalles {
+            overflow: hidden;
+            min-height: 68vh;
+            margin-top: 22vh;
+            font-size: 20px;
         }
+        
 
         h1 {
             text-align: center;
@@ -65,7 +73,7 @@
 
 <body>
     <head th:replace="~{/fragment.html::cabecera}"></head>
-    <main>
+    <main class="detalles">
         <div th:if="${raza != null}">
             <h1 th:text="${raza.nombre}"></h1>
 

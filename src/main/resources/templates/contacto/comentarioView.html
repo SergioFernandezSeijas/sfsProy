@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <script src="/js/vistaMovil.js"></script>
+    <title>GUAU</title>
+
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 38px;
+        }
+    
+        #info {
+            border: 1px solid black;
+            width: 70%;
+            margin-left: 15%;
+            font-size: 20px;
+        }
+    
+        #info td{
+            padding: 10px;
+        }
+    
+        td {
+            font-weight: 700;
+        }
+        
+        td {
+            text-align: center;
+            /* border-right: 1px solid black; */
+        }
+        
+        td:last-child {
+          text-align: center;
+        }
+    
+    
+        th {
+          border-bottom: 1px solid black;
+        }
+    
+        /* th {
+          border-right: 1px solid black;
+        } */
+    
+        th:first-child {
+          border-right: 1px solid black;
+        }
+    
+        tr:nth-child(odd) {
+            background-color: wheat;
+        }
+    
+        tr:nth-child(even) {
+            background-color: whitesmoke; 
+        }
+    
+      @media (max-width: 950px) {
+      #info, #info thead, #info tbody, #info th, #info td, #info tr {
+        display: block;
+      }
+    
+      #info thead tr {
+        display: none;
+      }
+    
+      #info tr {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    
+      #info td {
+        display: flex;
+        justify-content: space-between;
+        /* padding-left: 50%; */
+        position: relative;
+      }
+    
+      #info td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+      }
+    
+      #nuevoUsuario {
+        display: block;
+        margin: 20px 0;
+        text-align: center;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header th:replace="~{/fragment.html::cabecera}"></header>
+    <main class="usuario">
+        <h1>Comentarios</h1>
+        <table id="info">
+            <thead>
+                <tr>
+                    <th>Asunto</th>
+                    <th>Email</th>
+                    <th>Motivo</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contacto : ${mensajes}">
+                    <td th:text="${contacto.asunto}"></td>
+                    <td th:text="${contacto.email}"></td>
+                    <td th:text="${contacto.motivo}"></td>
+                    <td th:text="${contacto.comentarios}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+</body>
+</html>

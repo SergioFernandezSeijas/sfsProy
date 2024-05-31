@@ -58,4 +58,11 @@ public class ContactoController {
         model.addAttribute("mensajeError", ex.getMessage());
         return "contacto/error403";
     }
+
+    @GetMapping("/comentarios")
+    public String mostrarMensajes(Model model) {
+        model.addAttribute("mensajes", contactoService.obtenerTodos());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
+        return "contacto/comentarioView";
+    }
 }

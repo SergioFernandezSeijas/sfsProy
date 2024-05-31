@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <script src="/js/vistaMovil.js"></script>
+    <title>GUAU</title>
+</head>
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main class="usuario">
+        <!-- <h1>Test de Razas de Perros</h1>
+    <form method="post" action="#" th:action="@{/test/submit}" th:object="${preguntas}">
+        <div th:each="pregunta : ${preguntas}">
+            <p th:text="${pregunta.cuestion}"></p>
+            <div th:each="respuesta : ${pregunta.respuestas}">
+                <input type="radio" th:name="${pregunta.id}" th:value="${respuesta.id}"/>
+                <label th:for="${respuesta.id}" th:text="${respuesta.texto}"></label><br/>
+            </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form> -->
+
+
+
+
+    <!-- <form method="post" action="#" th:action="@{/test/submit}">
+        <div th:each="pregunta : ${preguntas}">
+            <p th:text="${pregunta.cuestion}"></p>
+            <div th:each="respuesta : ${pregunta.respuestas}">
+                <input type="radio" th:name="${respuesta.id}" th:value="${respuesta.id}"/>
+                <label th:for="${respuesta.id}" th:text="${respuesta.texto}"></label><br/>
+            </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form> -->
+
+
+
+
+<!-- IMPORTANTISIMO CODIGO FUNCIONAL -->
+    <!-- <form method="post" action="#" th:action="@{/test/submit}">
+        <div th:each="pregunta : ${preguntas}">
+            <p th:text="${pregunta.cuestion}"></p>
+            <div th:each="respuesta : ${pregunta.respuestas}">
+                <input type="checkbox" th:name="'respuestas'" th:value="${respuesta.id}"/>
+                <label th:for="${respuesta.id}" th:text="${respuesta.texto}"></label><br/>
+            </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form> -->
+
+
+
+
+
+        <form method="post" action="#" th:action="@{/test/submit}">
+            <div th:each="pregunta : ${preguntas}">
+                <p th:text="${pregunta.cuestion}"></p>
+                <div th:each="respuesta : ${pregunta.respuestas}">
+                    <input type="checkbox" th:name="'respuestas'" th:value="${respuesta.id}" class="answer-input" onclick="toggleSubmitButton()"/>
+                    <label th:for="${respuesta.id}" th:text="${respuesta.texto}"></label><br/>
+                </div>
+            </div>
+            <button type="submit" class="submit-button" id="submitButton" disabled>Enviar</button>
+        </form>
+
+
+
+
+
+
+
+    <!-- <h1>Formulario de Test</h1>
+    <form action="/resultados" method="post">
+        <ul>
+            <li th:each="pregunta : ${preguntas}">
+                <h3 th:text="${pregunta.cuestion}"></h3>
+                <ul>
+                    <li th:each="respuesta : ${pregunta.respuestas}">
+                        <label>
+                            <input type="radio" name="respuestas" th:value="${respuesta.id}" th:text="${respuesta.texto}">
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <button type="submit">Enviar</button>
+    </form> -->
+    </main>
+    
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+
+    <script>
+        function toggleSubmitButton() {
+            const checkboxes = document.querySelectorAll('.answer-input');
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    submitButton.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
