@@ -4,48 +4,35 @@ function iniciar() {
 	document.getElementById("enviar").addEventListener('click',validarFormulario);
 }
 
-function validarUsuario() {
+function validarNombre() {
 	let elemento = document.getElementById("nombre");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error1(elemento, "Debe introducir un usuario");
+			error1(elemento, "Debe introducir un nombre");
 		}
 		return false;
 	}
 	return true;
 }
 
-function validarEmail() {
-	let elemento = document.getElementById("email");
+
+function validarPrecio() {
+	let elemento = document.getElementById("precio");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "Debe introducir un email");
-		}
-        else if (elemento.validity.typeMismatch) {
-            error2(elemento, "Debe introducir un email válido");
-        }
-		return false;
-	}
-	return true;
-}
-
-
-function validarDomicilio() {
-	let elemento = document.getElementById("domicilio");
-	if (!elemento.checkValidity()) {
-		if (elemento.validity.valueMissing) {
-			error3(elemento, "Debe introducir un domicilio");
+			error2(elemento, "Debe introducir un precio");
 		}
 		return false;
 	}
 	return true;
 }
 
-function validarContrasena() {
-	let elemento = document.getElementById("contrasenha");
+
+function validarStock() {
+	let elemento = document.getElementById("stock");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error4(elemento, "Debe introducir una contraseña");
+			error3(elemento, "Debe introducir un stock");
 		}
 		return false;
 	}
@@ -54,7 +41,7 @@ function validarContrasena() {
 
 function validarFormulario(e) {
 	eliminarError();
-	if (validarUsuario() && validarEmail() && validarDomicilio() && validarContrasena() && confirm("¿Desea enviar el formulario?")) {
+	if (validarNombre() && validarPrecio() && validarStock() && confirm("¿Desea crear este producto?")) {
 		return true;
 	}
 	else {
@@ -79,15 +66,7 @@ function error3(elemento, mensaje) {
 	elemento.focus();
 }
 
-function error4(elemento, mensaje) {
-	document.getElementById("mensajeError3").innerHTML = mensaje;
-	elemento.focus();
-}
-
-
-
 function eliminarError() {
-    // Busca todos los elementos <span> cuyo id empieza con "mensajeError"
     let mensajesError = document.querySelectorAll("span[id^='mensajeError']"); 
     mensajesError.forEach(function(mensaje) { 
         mensaje.innerHTML = ""; 

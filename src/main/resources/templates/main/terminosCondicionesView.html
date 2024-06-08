@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/motivo.css" />
+    <script src="/js/vistaMovil.js"></script>
+    <title>GUAU</title>
+
+    <style>
+        .motivo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .motivo h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .motivo p {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .motivo div {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .motivo b {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main class="motivo">
+        <h1>Términos y Condiciones de GUAU</h1> <br>
+
+        <div>
+            <b>1. Aceptación de los Términos</b><br>
+            Al acceder y usar GUAU, aceptas estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguna parte de los términos, no deberías usar la aplicación web.
+        </div>
+
+        <br>
+
+        <div>
+            <b>2. Uso de la Aplicación</b><br>
+            GUAU está diseñada para facilitar la búsqueda de información sobre razas de perros, compra de productos, localización de lugares de adopción y realización de tests de raza ideal. No debe usarse para ningún propósito ilegal o no autorizado.
+        </div>
+
+        <br>
+
+        <div>
+            <b>3. Registro y Seguridad</b><br>
+            Si creas una cuenta en GUAU, debes proporcionar información precisa y completa. Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, y aceptas notificar de inmediato cualquier uso no autorizado.
+        </div>
+
+        <br>
+
+        <div>
+            <b>4. Privacidad</b><br>
+            Tu privacidad es lo más importante para nosotros.
+        </div>
+
+        <br>
+
+        <div>
+            <b>5. Propiedad Intelectual</b><br>
+            Todos los contenidos de la aplicación web, incluidos textos, gráficos, logos, íconos y software, son propiedad de GUAU y están protegidos por las leyes de propiedad intelectual.
+        </div>
+
+        <br>
+
+        <div>
+            <b>6. Modificaciones a los Términos</b><br>
+            Nos reservamos el derecho de modificar estos términos en cualquier momento. Te notificaremos de cualquier cambio importante a través de la aplicación web.
+        </div>
+
+        <br>
+
+        <div>
+            <b>7. Limitación de Responsabilidad</b><br>
+            GUAU no será responsable de ningún daño indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar la aplicación web.
+        </div>
+
+        <br>
+
+        <div>
+            <b>8. Terminación</b><br>
+            Nos reservamos el derecho de suspender o terminar tu acceso a la aplicación web en cualquier momento, sin previo aviso, si consideramos que has violado estos términos.
+        </div>
+
+        <br>
+
+        <div>
+            <b> 9. Ley Aplicable</b><br>
+            Estos términos se regirán e interpretarán de acuerdo con las leyes del país donde está registrada la empresa GUAU.
+        </div>
+
+        <br>
+
+        <div>
+            <b>10. Contacto</b><br>
+            Si tienes alguna pregunta sobre estos Términos y Condiciones, por favor contáctanos en el apartado "Contáctanos".
+        </div>
+    </main>
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+</body>
+</html>

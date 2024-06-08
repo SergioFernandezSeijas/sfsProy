@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.Producto;
+import com.example.demo.domain.Raza;
 import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.services.CategoriaService;
 import com.example.demo.services.ProductoService;
@@ -55,7 +56,20 @@ public class ProductoController {
 
     @PostMapping("/nuevo/submit")
     public String getNewSubmit(@Valid Producto producto, BindingResult bindingResult, Model model) {
-        productoService.añadir(producto);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("productoForm", producto);
+            model.addAttribute("error", "Errores en el formulario");
+            return "producto/newFormView";
+        }
+        try {
+            productoService.añadir(producto);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("productoForm", producto);
+            model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
+            model.addAttribute("error", e.getMessage());
+            return "producto/newFormView";
+        }
+        
         return "redirect:/producto/?op=1";
     }
 

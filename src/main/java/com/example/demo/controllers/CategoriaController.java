@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Categoria;
+import com.example.demo.domain.Usuario;
 import com.example.demo.services.CategoriaService;
 import com.example.demo.services.ProductoService;
 
@@ -43,13 +44,22 @@ public class CategoriaController {
     @PostMapping("/new/submit")
     public String showNewSubmit(
             @Valid @ModelAttribute("categoriaForm") Categoria nuevaCategoria,
-            BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors())
+            BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("categoriaForm", nuevaCategoria);
+            model.addAttribute("error", "Errores en el formulario");
             return "category/categoryNewView";
-        categoriaService.añadir(nuevaCategoria);
+        }
+        try {
+            categoriaService.añadir(nuevaCategoria);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("categoriaForm", nuevaCategoria);
+            model.addAttribute("error", e.getMessage());
+            return "category/categoryNewView";
+        }
         return "redirect:/categorias/";
     }
+
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable long id, Model model) {

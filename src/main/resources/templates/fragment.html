@@ -10,6 +10,13 @@
   <link rel="stylesheet" href="/css/usuario.css" />
   <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
   <title>GUAU</title>
+
+  <style>
+    #inicioRegistro {
+      padding-right: 50px;
+      padding-left: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +35,7 @@
         </div>
 
         <div class="perfil" sec:authorize="!isAuthenticated()">
-          <a th:href="@{/signin}"><img src="/images/inicio/boton_inicio_sesion.png" title="Iniciar Sesión/Registrarse" /></a>
+          <a th:href="@{/signin}"><img src="/images/inicio/boton_inicio_sesion.png" id="inicioRegistro" title="Iniciar Sesión/Registrarse" /></a>
         </div>
 
         <div sec:authorize="isAuthenticated()">

@@ -107,7 +107,7 @@
     <table id="info">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Rol</th>
           <th>Nombre</th>
           <th>Email</th>
           <th>Domicilio</th>
@@ -120,7 +120,7 @@
 
       <tbody>
         <tr th:each="usuario : ${listaUsuarios}">
-          <td th:text="${usuario.id}">Id</td>
+          <td th:text="${usuario.rol}">Id</td>
           <td th:text="${usuario.nombre}">nombre</td>
           <td th:text="${usuario.email}">email</td>
           <td th:text="${usuario.domicilio}">*</td>

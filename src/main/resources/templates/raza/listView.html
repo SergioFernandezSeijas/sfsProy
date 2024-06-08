@@ -15,6 +15,63 @@
       text-decoration: none;
       color: black;
     } */
+
+    #editar {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      background-color: green;
+    }
+
+    #borrar {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      background-color: red;
+    }
+
+  /* .raza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fotosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;  
+  }
+
+  .fotosPerro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .fotosPerro .imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.2s;
+    border: 1px solid black;
+  } */
+
+
   </style>
 </head>
 
@@ -49,11 +106,11 @@
               <p th:text="${raza.nombre}" th:id="${raza.nombre.toLowerCase().replace(' ', '_') + '_texto'}"></p>
 
               <p sec:authorize="hasRole('ADMIN')">
-                  <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}">Editar</a>
+                  <a th:href="@{/razas/editar/{nombre}(nombre=${raza.nombre})}" id="editar">Editar</a>
               </p>
               
               <p sec:authorize="hasRole('ADMIN')">
-                  <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}">Borrar</a>
+                  <a th:href="@{/razas/borrar/{nombre}(nombre=${raza.nombre})}" id="borrar">Borrar</a>
               </p>
           </div>
         </a>
@@ -64,10 +121,10 @@
       </div>
 
       <div class="enlaces">
-        <a th:href="@{/razas/?pag=0}">Pág inicial</a>&nbsp;|&nbsp;
-        <a th:href="@{/razas/(pag=${pagAnterior})}">Pág ant</a>&nbsp;|&nbsp;
-        <a th:href="@{/razas/(pag=${pagSiguiente})}">Pág sig</a>&nbsp;|&nbsp;
-        <a th:href="@{/razas/(pag=${pagFinal})}">Ult pág</a>
+        <a th:href="@{/razas/?pag=0}"><img src="/images/inicio/doble_flecha_izquierda.png" width="40px" height="30px"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a th:href="@{/razas/(pag=${pagAnterior})}"><img src="/images/inicio/flecha_izquierda.png" width="40px" height="30px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a th:href="@{/razas/(pag=${pagSiguiente})}"><img src="/images/inicio/flecha_derecha.png" width="40px" height="30px"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a th:href="@{/razas/(pag=${pagFinal})}"><img src="/images/inicio/doble_flecha_derecha.png" width="40px" height="30px"></a>
       </div>
     </div>
   </main>

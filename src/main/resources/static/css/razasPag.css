@@ -2,19 +2,70 @@
   overflow-y: hidden;
 } */
 
-.raza {
+
+  /* .raza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fotosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;  
+  }
+
+  .fotosPerro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .fotosPerro .imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.2s;
+    border: 1px solid black;
+  } 
+  
+  --------------------------------------------------------------------------------*/
+
+
+
+/* .raza {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   min-height: 68.1vh;
   margin-top: 22vh;
-}
+} */
 
-.fotosContainer {
+.raza {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 68.1vh;
+  margin-top: 24vh;
+}
+
+/* .fotosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.fotosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; 
 }
 
 .fotosContainer p {
@@ -22,11 +73,18 @@
   color: black;
 }
 
-.fotosPerro {
+/* .fotosPerro {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
+} */
+
+.fotosPerro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .fotosPerro2 {
@@ -34,16 +92,16 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 1vh;
-  margin-bottom: 3vh;
+  /* margin-top: 0.5vh; */
+  /* margin-bottom: 3vh; */
 }
 
 .imagen {
   display: block;
   text-align: center;
   border: 1px solid black;
-  margin-left: 45px;
-  margin-right: 45px;
+  margin-left: 35px;
+  margin-right: 35px;
   padding: 5px;
   border-radius: 7%;
 }
@@ -52,6 +110,15 @@
   height: auto;
   width: 200px;
 }
+
+.fotosPerro .imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  /* transition: transform 0.2s; */
+  border: 1px solid black;
+} 
 
 .finalRazas {
   align-items: center;

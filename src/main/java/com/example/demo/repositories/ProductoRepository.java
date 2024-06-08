@@ -10,4 +10,5 @@ import com.example.demo.domain.Producto;
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
     
     List<Producto> findByCategoria(Categoria categoria);
+    boolean existsByNombre(String nombre);
 }

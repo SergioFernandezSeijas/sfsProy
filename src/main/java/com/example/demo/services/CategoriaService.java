@@ -20,6 +20,9 @@ public class CategoriaService {
     CategoriaRepository categoriaRepository;
 
     public Categoria añadir(Categoria categoria) {
+        if (categoriaRepository.existsByNombre(categoria.getNombre())) {
+            throw new IllegalArgumentException("El nombre ya está en uso.");
+        }
         return categoriaRepository.save(categoria);
     }
 

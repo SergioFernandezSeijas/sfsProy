@@ -3,6 +3,7 @@ package com.example.demo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Raza;
+import com.example.demo.domain.Usuario;
 import com.example.demo.repositories.RazaRepository;
 
 @Service
@@ -20,6 +22,9 @@ public class RazaService {
     private final Integer pageSize = 12;
 
     public Raza añadir(Raza raza) {
+        if (razaRepository.existsByNombre(raza.getNombre())) {
+            throw new IllegalArgumentException("El nombre ya está en uso.");
+        }
         return razaRepository.save(raza);
     }
 

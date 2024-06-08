@@ -48,4 +48,16 @@ public class MainController {
         model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "main/veterinarioView";
     }
+
+    @GetMapping("/ayuda")
+    public String getAyuda(Model model) {
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
+        return "main/ayudaView";
+    }
+
+    @GetMapping("/terminosCondiciones")
+    public String getTerminosCondiciones(Model model) {
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
+        return "main/terminosCondicionesView";
+    }
 }

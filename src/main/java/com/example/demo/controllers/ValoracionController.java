@@ -66,13 +66,16 @@ public class ValoracionController {
         if(!bindingResult.hasErrors()) {
             valoracionService.añadir(valoracion);
         }
-        return "redirect:/producto/";
+        Long productoId = valoracion.getProducto().getId();
+        return "redirect:/valoraciones/producto/" + productoId;
     }
 
     @GetMapping("/borrar/{id}")
     public String showDeleteValoracion(@PathVariable long id) {
+        Valoracion valoracion = valoracionService.obtenerPorId(id);
+        Producto producto = valoracion.getProducto();
         valoracionService.eliminar(valoracionService.obtenerPorId(id));
-        return "redirect:/producto/";
+        return "redirect:/valoraciones/producto/" + producto.getId();
     }
     
     

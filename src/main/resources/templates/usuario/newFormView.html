@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/formulario.css">
-    <script src="/js/validarFormularioRegistro.js"></script>
+    <script src="/js/nuevoUsuarioAdmin.js"></script>
     <script src="/js/vistaMovil.js"></script>
     <title>GUAU</title>
 </head>
@@ -14,37 +14,40 @@
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="formulario">
         <h2>Nuevo usuario</h2>
+        <div th:if="${error}" class="error">
+            <p th:text="${error}" style="color:red; font-size: 17px;"></p>
+        </div>
         <form method="post" action="#" th:action="@{/usuario/nuevo/submit}" th:object="${usuarioForm}">
             <input type="hidden" id="id" th:field="*{id}" /><br />
 
             <div>
                 <label>Nombre de usuario:</label> <br> 
                 <input type="text" id="nombre" th:field="*{nombre}" required/><br />
-                <span id="mensajeError0"></span> 
+                <span id="mensajeError0" style="color:red; font-size: 17px;"></span> 
             </div>
         
             <div>
               <label>Email:</label> <br> 
               <input type="email" id="email" th:field="*{email}" required/><br />
-              <span id="mensajeError1"></span> <br />
+              <span id="mensajeError1" style="color:red; font-size: 17px;"></span> <br />
             </div>
         
             <div>
                 <label>Domicilio:</label> <br> 
-                <input type="text" id="domicilio" th:field="*{domicilio}" required/><br />
-                <span id="mensajeError2"></span> <br />
+                <input type="text" id="domicilio" th:field="*{domicilio}" /><br />
             </div>
 
             <div>
                 <label>Contraseña:</label> <br>
                 <input type="text" id="contrasenha" th:field="*{password}" required/></label><br />
-                <span id="mensajeError3"></span> <br />
+                <span id="mensajeError2" style="color:red; font-size: 17px;"></span> <br />
             </div>
 
             <label>Rol:</label><br />
             <div th:each="rl : ${T(com.example.demo.domain.Rol).values()}">
                 <input type="radio" name="button1" th:value="${rl}" th:text="${rl}" th:field="*{rol}" required/>
             </div>
+            <span id="mensajeError3" style="color:red; font-size: 17px;"></span> <br />
             <br>
             <input type="submit" value="Enviar" id="enviar"/>
         </form>

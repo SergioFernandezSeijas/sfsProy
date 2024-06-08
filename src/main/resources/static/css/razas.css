@@ -28,7 +28,7 @@
 
 #basset_grifón_img {
   padding-top: 70px;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
 }
 
 #basset_hound {
@@ -54,6 +54,7 @@
 
 #bedlington_terrier_img {
   padding-top: 60px;
+  padding-bottom: 10px;
 }
 
 #bichón_frisé {
@@ -145,11 +146,12 @@
 }
 
 #cavalier_king_charles_spaniel {
+  width: 200px;
   margin-top: 5px;
 }
 
 #cavalier_king_charles_spaniel_img {
-  margin-top: 35px;
+  margin-top: 20px;
 }
 
 #chihuahua {
@@ -177,6 +179,10 @@
   padding-top: 15px;
 }
 
+#dálmata_img {
+  padding-bottom: 11px;
+}
+
 #dóberman {
   margin-bottom: 15px;
 }
@@ -191,10 +197,15 @@
 
 #galgo {
   padding-top: 35px;
-  padding-bottom: 29px;
+  width: 220px;
+}
+
+#galgo_img {
+  padding-bottom: 33px;
 }
 
 #golden_retriever {
+  /* width: 220px; */
   margin-top: 5px;
 }
 
@@ -213,26 +224,40 @@
 #jack_russell_terrier {
   margin-top: 5px;
   padding-top: 45px;
-  padding-bottom: 20px;
+  padding-bottom: 17px;
+}
+
+#jack_russell_terrier_img {
+  padding-bottom: 13px;
 }
 
 #kerry_blue_terrier_img {
-  padding-top: 40px;
+  padding-top: 50px;
 }
 
 #komondor {
   padding-top: 50px;
-  padding-bottom: 20px;
+}
+
+#komondor_img {
+  padding-bottom: 27px;
 }
 
 #labrador_retriever {
-  padding: 5px;
-  margin-bottom: 5px;
+  padding: 7px;
+  /* margin-bottom: 5px; */
+}
+
+#labrador_retriever_img {
+  padding-bottom: 4px;
 }
 
 #lhasa_apso{
   padding-top: 45px;
-  padding-bottom: 25px;
+}
+
+#lhasa_apso_img{
+  padding-bottom: 30px;
 }
 
 #maltés{
@@ -254,8 +279,11 @@
 }
 
 #papillón {
-  margin-top: 5px;
-  padding: 1px;
+  padding-top: 53px;
+}
+
+#papillón_img {
+  padding-bottom: 30px;
 }
 
 #pastor_alemán {
@@ -264,33 +292,55 @@
   margin-top: 5px;
 }
 
+#pastor_alemán p {
+  padding-top: 13px;
+}
+
 #pastor_australiano {
   margin-top: 5px;
 }
 
 #pastor_belga {
   padding-top: 25px;
-  padding-bottom: 5px;
-  margin-top: 15px;
+  padding-bottom: 18px;
+  margin-top: 8px;
+}
+
+#pastor_belga_texto {
+  padding-top: 7px;
 }
 
 
 #pastor_de_shetland {
   padding-top: 40px;
-  padding-bottom: 15px;
+}
+
+#pastor_de_shetland_img {
+  padding-bottom: 28px;
 }
 
 #perro_de_agua_portugués {
-  padding-top: 20px;
+  padding-top: 25px;
+}
+
+#perro_de_agua_portugués_img {
+  padding-bottom: 17px;
 }
 
 #perro_del_faraón {
   padding-top: 50px;
-  padding-bottom: 5px;
+}
+
+#perro_del_faraón_img {
+  padding-bottom: 20px;
 }
 
 #pinscher_alemán {
+  padding-bottom: 14px;
+}
 
+#pinscher_alemán_img {
+  padding-bottom: 5px;
 }
 
 #pinscher_alemán_enano {
@@ -316,7 +366,10 @@
 #rottweiler {
   margin-top: 5px;
   padding-top: 60px;
-  padding-bottom: 10px;
+}
+
+#rottweiler_img {
+  padding-bottom: 18px;
 }
 
 #samoyedo {
@@ -336,13 +389,19 @@
 }
 
 #shar_pei {
-  padding-top: 39px;
-  padding-bottom: 10px;
+  padding-top: 40px;
+}
+
+#shar_pei_img {
+  padding-bottom: 15px;
 }
 
 #shiba_inu {
-  padding-top: 48px;
-  padding-bottom: 19px;
+  padding-top: 50px;
+}
+
+#shiba_inu_img {
+  padding-bottom: 25px;
 }
 
 #shih_tzu {
@@ -371,12 +430,15 @@
 
 #terrier_de_airedale {
   margin-top: 10px;
-  padding-top: 49px;
-  padding-bottom: 18px;
+  padding-top: 45px;
+}
+
+#terrier_de_airedale_img {
+  padding-bottom: 28px;
 }
 
 #terrier_escocés {
-  margin-top: 10px;
+  margin-top: 18px;
 }
 
 #terrier_irlandés {
@@ -387,6 +449,10 @@
 #terrier_tibetano {
   padding-top: 45px;
   padding-bottom: 20px;
+}
+
+#terrier_tibetano_img {
+  padding-bottom: 15px;
 }
 
 #afgano:hover,

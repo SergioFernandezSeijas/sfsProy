@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/vistaMovil.js"></script>
+    <link rel="stylesheet" href="/css/inicio.css" />
+    <link rel="stylesheet" href="/css/motivo.css" />
+    <title>GUAU</title>
+
+    <style>
+        .motivo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .motivo h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .motivo p {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .motivo div {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .motivo b {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <head th:replace="~{/fragment.html::cabecera}"></head>
+    <main class="motivo">
+        <h1>Bienvenido a la Ayuda de GUAU</h1>
+        <p>Estamos aquí para asistirte con cualquier duda o problema que puedas tener al usar nuestra aplicación web. Aquí encontrarás respuestas a las 
+        preguntas más frecuentes y consejos sobre cómo aprovechar al máximo todas las funciones disponibles.
+        <br><br>
+        Preguntas Frecuentes (FAQ)</p>
+
+        <br>
+        <div>
+            <b>1. ¿Cómo navego por las razas de perros?</b><br>
+            Ve a la sección "Razas" en el menú principal. Haz clic en cualquier raza para ver información detallada sobre ella.
+        </div>
+
+        <br>
+
+        <div>
+            <b>2. ¿Cómo compro productos para mi perro?</b><br>
+            Visita nuestra "Tienda" desde el menú principal. Navega por las categorías de productos y añade los artículos que desees al carrito. Luego sigue las instrucciones para completar la compra.
+        </div>
+
+        <br>
+
+        <div>
+            <b>3. ¿Dónde puedo encontrar lugares de adopción?</b><br>
+            Accede a la sección "Adopta" en el menú principal. Aquí encontrarás una lista de los lugares de adopción más comunes en cada provincia.
+        </div>
+
+        <br>
+
+        <div>
+            <b>4. ¿Cómo funciona el test de raza ideal?</b><br>
+            En la sección "Test", responde una serie de preguntas sobre tus preferencias y estilo de vida. Al finalizar, recibirás una recomendación sobre la raza de perro que mejor se adapta a ti.
+        </div>
+
+        <br>
+
+        <div>
+            <b>5. ¿Cómo puedo contactar con el soporte?</b><br>
+            Si necesitas asistencia adicional, puedes contactarnos a través del formulario de "Contáctanos".
+        </div>
+    </main>
+    <footer th:replace="~{/fragment2.html::piePagina}"></footer>
+</body>
+</html>

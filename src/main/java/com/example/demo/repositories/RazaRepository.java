@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface RazaRepository extends JpaRepository<Raza,String>{
     // List<Raza> findByPuntuacion(Integer puntuacion);
+    boolean existsByNombre(String nombre);
 }

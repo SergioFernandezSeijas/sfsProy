@@ -43,7 +43,7 @@ function validarComentario() {
 
 function validarFormulario(e) {
 	eliminarError();
-	if (validarAsunto() && validarEmail() && validarComentario() && confirm("Desea enviar el formulario")) {
+	if (validarAsunto() && validarEmail() && validarComentario() && confirm("¿Desea enviar el formulario?")) {
 		alert("Formulario enviado con exito");
 		return true;
 	}

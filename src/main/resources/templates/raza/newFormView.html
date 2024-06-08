@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/editNewRaza.css">
     <script src="/js/vistaMovil.js"></script>
+    <script src="/js/nuevaRaza.js"></script>
     <title>GUAU</title>
 </head>
 
@@ -13,23 +14,33 @@
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="perro">
         <h1>Nueva raza</h1>
+        <div th:if="${error}" class="error">
+            <p th:text="${error}" style="color:red; font-size: 17px;"></p>
+        </div>
         <form method="post" action="#" th:action="@{/razas/nuevo/submit}" th:object="${raza}">
-            <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" required/> </label><br />
+            <div>
+                <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" required/> </label><br />
+                <span id="mensajeError0" style="color:red; font-size: 17px;"></span> <br />
+            </div>
 
-            <label>Origen: <input type="text" id="origen" th:field="*{origen}" required/> </label><br />
+            <label>Origen: <input type="text" id="origen" th:field="*{origen}" /> </label><br />
 
-            <label>Tamaño: <input type="text" id="tamano" th:field="*{tamano}" required/> </label><br />
+            <label>Tamaño: <input type="text" id="tamano" th:field="*{tamano}" /> </label><br />
 
-            <label>Peso: <input type="text" id="peso" th:field="*{peso}" required/> </label><br />
+            <label>Peso: <input type="text" id="peso" th:field="*{peso}" /> </label><br />
 
-            <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}" required/> </label><br />
+            <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}" /> </label><br />
 
-            <label>Actividad: <input type="text" id="actividad" th:field="*{actividad}" required/> </label><br />
+            <label>Actividad: <input type="text" id="actividad" th:field="*{actividad}" /> </label><br />
 
-            <label>Pelaje: <input type="text" id="pelaje" th:field="*{pelaje}" required/> </label><br />
+            <label>Pelaje: <input type="text" id="pelaje" th:field="*{pelaje}" /> </label><br />
 
-            <label>Puntuacion: <input type="number" id="puntuacion" th:field="*{puntuacion}" required/> </label><br />
-
+            <div>
+                <label>Puntuacion: <input type="number" id="puntuacion" th:field="*{puntuacion}" required/> </label><br />
+                <span id="mensajeError1" style="color:red; font-size: 17px;"></span> <br />
+            </div>
+            <br>
+            
             <label>Url: <input type="text" id="url" th:field="*{url}"/> </label><br />
 
             <!-- <label>Esperanza de vida: <input type="text" id="esperanzaVida" th:field="*{esperanzaVida}" /></label><br />

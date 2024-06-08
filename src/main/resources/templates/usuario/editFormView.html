@@ -14,7 +14,7 @@
         <form method="post" action="#" th:action="@{/usuario/editar/submit}" th:object="${usuarioForm}">
             <label>Id: <input type="text" id="id" th:field="*{id}" readonly/> </label><br />
 
-            <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+            <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" readonly/></label><br />
 
             <label>Email: <input type="email" id="email" th:field="*{email}" readonly/></label><br />
 

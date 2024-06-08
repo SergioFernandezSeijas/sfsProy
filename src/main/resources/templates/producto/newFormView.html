@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/productos.css">
     <script src="/js/vistaMovil.js"></script>
+    <script src="/js/nuevoProducto.js"></script>
     <title>GUAU</title>
 </head>
 
@@ -13,10 +14,17 @@
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="productos">
         <h1>Nuevo producto</h1>
+        <div th:if="${error}" class="error">
+            <p th:text="${error}" style="color:red; font-size: 17px;"></p>
+        </div>
         <form method="post" action="#" th:action="@{/producto/nuevo/submit}" th:object="${productoForm}">
             <input type="hidden" id="id" th:field="*{id}" /><br />
 
-            <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" required/></label><br />
+            <div>
+                <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" required/></label><br />
+                <span id="mensajeError0" style="color:red; font-size: 17px;"></span> <br />
+            </div>
+            
     <!-- 
             <label>En oferta: <input type="checkbox" id="enOferta" th:field="*{enOferta}" /></label><br />
 
@@ -24,9 +32,15 @@
             <label>Reducido: <input type="radio" name="iva" value="Reducido" th:field="*{tipoIva}" /></label><br />
             <label>Normal: <input type="radio" name="iva" value="Normal" th:field="*{tipoIva}" /></label><br /> -->
 
-            <label>Precio: <input type="number" id="precio" th:field="*{precio}" required/></label><br />
+            <div>
+                <label>Precio: <input type="number" id="precio" th:field="*{precio}" required/></label><br />
+                <span id="mensajeError1" style="color:red; font-size: 17px;"></span> <br />
+            </div>
 
-            <label>Stock: <input type="number" id="stock" th:field="*{stock}" required/></label><br />
+            <div>
+                <label>Stock: <input type="number" id="stock" th:field="*{stock}" required/></label><br />
+                <span id="mensajeError2" style="color:red; font-size: 17px;"></span> <br />
+            </div>
 
             <label>Categoria
                 <select name="categoria" th:field="*{categoria}">

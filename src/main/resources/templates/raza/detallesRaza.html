@@ -68,6 +68,48 @@
         tr:nth-child(even) {
             background-color: whitesmoke; 
         }
+
+        @media only screen and (max-width: 1026px) {
+            .razaFoto {
+                margin-left: 26%;
+            }
+
+            table {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+            th, td {
+                max-width: 220px;
+                white-space: normal;    
+            }
+            th:first-child, td:first-child {
+                max-width: 200px;
+                white-space: normal;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .razaFoto {
+                float: left;
+                margin-left: 60px;
+                margin-right: 140px;
+            }    
+
+            table {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+            th, td {
+                max-width: 220px;
+                white-space: normal;
+            }
+            th:first-child, td:first-child {
+                max-width: 200px;
+                white-space: normal;
+            }
+        }
     </style>
 </head>
 

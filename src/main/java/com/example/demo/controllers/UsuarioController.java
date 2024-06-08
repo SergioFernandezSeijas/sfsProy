@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.domain.Rol;
 import com.example.demo.domain.Usuario;
 import com.example.demo.services.UsuarioService;
 
@@ -41,9 +42,25 @@ public class UsuarioController {
         return "usuario/newFormView";
     }
 
-    @PostMapping("/nuevo/submit")  
+    // @PostMapping("/nuevo/submit")  
+    // public String nuevo(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
+    //     usuarioService.añadir(usuario);
+    //     return "redirect:/usuario/";
+    // }
+    @PostMapping("/nuevo/submit")
     public String nuevo(@Valid Usuario usuario, BindingResult bindingResult, Model model) {
-        usuarioService.añadir(usuario);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("usuarioForm", usuario);
+            model.addAttribute("error", "Errores en el formulario");
+            return "usuario/newFormView";
+        }
+        try {
+            usuarioService.añadir(usuario);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("usuarioForm", usuario);
+            model.addAttribute("error", e.getMessage());
+            return "usuario/newFormView";
+        }
         return "redirect:/usuario/";
     }
 

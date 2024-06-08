@@ -17,6 +17,10 @@
             overflow-y: scroll;
         } */
 
+        h1 {
+            text-align: center;
+        }
+
         .resultadoRaza p {
             text-align: center;
             color: black;
@@ -33,9 +37,9 @@
 <body>
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="usuario">
-        <h1>Resultado del Test</h1>
-        <p>Puntuación obtenida: <span th:text="${puntuacion}"></span></p>
-        <h2>Razas Recomendadas</h2>
+        <!-- <h1>Resultado del Test</h1>
+        <p>Puntuación obtenida: <span th:text="${puntuacion}"></span></p> -->
+        <h1>Razas Recomendadas</h1>
         <!-- <ul>
             <li th:each="raza : ${razasRecomendadas}" th:text="${raza.nombre}"></li>
         </ul>

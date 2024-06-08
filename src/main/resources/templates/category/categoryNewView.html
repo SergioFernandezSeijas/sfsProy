@@ -3,16 +3,21 @@
 <head>
   <link rel="stylesheet" href="/css/formulario.css">
   <script src="/js/vistaMovil.js"></script>
+  <script src="/js/nuevaCategoria.js"></script>
   <title>GUAU</title>
 </head>
 <body>
     <head th:replace="~{/fragment.html::cabecera}"></head>
     <main class="formulario">
       <h1>Nueva Categoría</h1>
+      <div th:if="${error}" class="error">
+        <p th:text="${error}" style="color:red; font-size: 17px;"></p>
+      </div>
       <form method="post" action="#" th:action="@{/categorias/new/submit}"
               th:object="${categoriaForm}">
               <input type="hidden" id="id" th:field="*{id}" /><br/>
-              <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+              <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" required/></label><br/>
+              <span id="mensajeError0" style="color:red; font-size: 17px;"></span> <br><br>
               <input type="submit" value="Enviar" id="enviar"/>
       </form>
       <a th:href="@{/categorias/}" id="volver">Volver</a><br />

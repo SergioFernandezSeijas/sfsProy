@@ -20,7 +20,7 @@
         border: 1px solid black;
         width: 70%;
         margin-left: 15%;
-        font-size: 30px;
+        font-size: 23px;
     }
 
     #info td{
@@ -53,43 +53,45 @@
         background-color: whitesmoke; 
     }
 
+    #volver {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
     @media (max-width: 950px) {
-  #info, #info thead, #info tbody, #info th, #info td, #info tr {
-    display: block;
-  }
+      #info, #info thead, #info tbody, #info th, #info td, #info tr {
+        display: block;
+      }
 
-  #info thead tr {
-    display: none;
-  }
+      #info thead tr {
+        display: none;
+      }
 
-  #info tr {
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-  }
+      #info tr {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+      }
 
-  #info td {
-    display: flex;
-    justify-content: space-between;
-    /* padding-left: 50%; */
-    position: relative;
-  }
+      #info td {
+        display: flex;
+        justify-content: space-between;
+        /* padding-left: 50%; */
+        position: relative;
+      }
 
-  #info td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    font-weight: bold;
-  }
-
-  /* Ajustar el enlace "Nuevo usuario" */
-  #nuevoUsuario {
-    display: block;
-    margin: 20px 0;
-    text-align: center;
-  }
-}
+      #info td::before {
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+      }
+    }
   </style>
 
 </head>
@@ -98,13 +100,12 @@
 
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="valUsuario">
-    <a th:href="@{/usuario/}" id="volver">Volver</a><br />
     <!-- <h1>Listado de productos de un usuario</h1> -->
     <h2 th:text="'Valoraciones de ' + ${usuario.email}">*</h2>
     <table id="info">
       <thead>
         <tr>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Producto</th>
           <th>Puntuacion</th>
           <th>Texto</th>
@@ -113,7 +114,7 @@
       </thead>
       <tbody>
         <tr th:each="valoracion : ${listaValoracion}">
-          <td th:text="${valoracion.producto.id}">Id</td>
+          <!-- <td th:text="${valoracion.producto.id}">Id</td> -->
           <td th:text="${valoracion.producto.nombre}">nombre</td>
           <td th:text="${valoracion.puntuacion}">Puntuacion</td>
           <td th:text="${valoracion.texto}">Texto</td>
@@ -124,6 +125,8 @@
         </tr>
       </tbody>
     </table>
+    <br><br>
+    <a th:href="@{/usuario/}" id="volver">Volver</a>
   </main>
   <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>

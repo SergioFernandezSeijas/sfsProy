@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import com.example.demo.domain.Raza;
+import com.example.demo.domain.Usuario;
 import com.example.demo.services.RazaService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -46,9 +47,22 @@ public class RazaController {
 
     @PostMapping("/nuevo/submit")
     public String getNewSubmit(@Valid Raza raza, BindingResult bindingResult, Model model) {
-        razaService.añadir(raza);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("raza", raza);
+            model.addAttribute("error", "Errores en el formulario");
+            return "raza/newFormView";
+        }
+        try {
+            razaService.añadir(raza);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("raza", raza);
+            model.addAttribute("error", e.getMessage());
+            return "raza/newFormView";
+        }
+        
         return "redirect:/razas/?op=1";
     }
+
 
     @GetMapping("/editar/{nombre}")
     public String getEdit(@PathVariable String nombre, Model model) {

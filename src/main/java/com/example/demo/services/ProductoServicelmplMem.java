@@ -35,6 +35,9 @@ public class ProductoServicelmplMem implements ProductoService {
     LineaPedidoService lineaPedidoService;
 
     public Producto añadir(Producto producto) {
+        if (productoRepository.existsByNombre(producto.getNombre())) {
+            throw new IllegalArgumentException("El nombre ya está en uso.");
+        }
         return productoRepository.save(producto);
     }
 

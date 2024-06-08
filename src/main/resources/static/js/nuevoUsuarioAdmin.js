@@ -30,31 +30,42 @@ function validarEmail() {
 }
 
 
-function validarDomicilio() {
-	let elemento = document.getElementById("domicilio");
-	if (!elemento.checkValidity()) {
-		if (elemento.validity.valueMissing) {
-			error3(elemento, "Debe introducir un domicilio");
-		}
-		return false;
-	}
-	return true;
-}
-
 function validarContrasena() {
 	let elemento = document.getElementById("contrasenha");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error4(elemento, "Debe introducir una contraseña");
+			error3(elemento, "Debe introducir una contraseña");
 		}
 		return false;
 	}
 	return true;
 }
 
+
+
+function validarRol(e) {
+	let elementos = document.getElementsByName("button1");
+    let algunoSeleccionado = false;
+
+    for (let i = 0; i < elementos.length; i++) {
+        if (elementos[i].checked) {
+            algunoSeleccionado = true;
+            break;
+        }
+    }
+
+    if (!algunoSeleccionado) {
+        error4(elementos[0], "Debe seleccionar un rol");
+        return false;
+    }
+
+
+    return true;
+}
+
 function validarFormulario(e) {
 	eliminarError();
-	if (validarUsuario() && validarEmail() && validarDomicilio() && validarContrasena() && confirm("¿Desea enviar el formulario?")) {
+	if (validarUsuario() && validarEmail() && validarContrasena() && validarRol()  && confirm("¿Desea enviar el formulario?")) {
 		return true;
 	}
 	else {

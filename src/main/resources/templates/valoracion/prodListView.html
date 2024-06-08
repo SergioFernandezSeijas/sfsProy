@@ -8,38 +8,103 @@
   <link rel="stylesheet" href="/css/global.css" />
   <script src="/js/vistaMovil.js"></script>
   <title>GUAU</title>
+
+  <style>
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    .valoraciones-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .valoracion {
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .valoracion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .valoracion-header span {
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .valoracion-body {
+      font-size: 20px;
+    }
+
+    .valoracion-body .puntuacion, .valoracion-body .texto {
+      margin: 5px 0;
+    }
+
+    .delete-button {
+      color: #fff;
+      background-color: #dc3545;
+      padding: 5px 10px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .delete-button:hover {
+      background-color: #c82333;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .rate-button {
+      color: #fff;
+      background-color: #28a745;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 21px;
+    }
+
+    .rate-button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 
 <body>
 
   <head th:replace="~{/fragment.html::cabecera}"></head>
   <main class="valProducto">
-    <h1>Listado de usuarios de un producto</h1>
-    <h2 th:text="'Valoraciones del producto: ' + ${producto.nombre}">Producto</h2>
-    <table>
-      <thead>
-        <tr>
-          <!-- <th>ID</th> -->
-          <th>Nombre</th>
-          <th>Puntuacion</th>
-          <th>Texto</th>
-          <th sec:authorize="hasAnyRole('ADMIN','USUARIO')">Borrar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="valoracion : ${listaValoracion}">
-          <!-- <td th:text="${valoracion.usuario.id}">Id</td> -->
-          <td th:text="${valoracion.usuario.nombre}">nombre</td>
-          <td th:text="${valoracion.puntuacion}">Puntuacion</td>
-          <td th:text="${valoracion.texto}">Texto</td>
-          <td sec:authorize="hasAnyRole('ADMIN','USUARIO')">
-            <a th:href="@{/valoraciones/borrar/{id}
-(id=${valoracion.id})}">Borrar</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <a th:href="@{/valoraciones/nuevo/{id}(id=${producto.id})}">Valorar</a><br />
+    <h1 th:text="'Valoraciones del producto: ' + ${producto.nombre}">Producto</h1>
+    <div class="valoraciones-container">
+      <div class="valoracion" th:each="valoracion : ${listaValoracion}">
+        <div class="valoracion-header">
+          <span th:text="${valoracion.usuario.nombre}">Nombre del usuario</span>
+          <a class="delete-button" th:href="@{/valoraciones/borrar/{id}(id=${valoracion.id})}" sec:authorize="hasAnyRole('ADMIN','USUARIO')">Borrar</a>
+        </div>
+        <div class="valoracion-body">
+          <p class="puntuacion" th:text="'Puntuación: ' + ${valoracion.puntuacion} + '/10'">Puntuación</p>
+          <p class="texto" th:text="${valoracion.texto}">Texto de la valoración</p>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <a class="rate-button" th:href="@{/valoraciones/nuevo/{id}(id=${producto.id})}">Valorar</a>
+    </div>
   </main>
   <footer th:replace="~{/fragment2.html::piePagina}"></footer>
   <script>
