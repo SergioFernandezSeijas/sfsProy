@@ -8,88 +8,6 @@
   <link rel="stylesheet" href="/css/global.css" />
   <title>GUAU</title>
 
-  <!-- <style>
-    h1 {
-        text-align: center;
-        font-size: 35px;
-        margin-bottom: 38px;
-    }
-
-    #info {
-        border: 1px solid black;
-        width: 70%;
-        margin-left: 15%;
-        font-size: 20px;
-    }
-
-    #info td{
-        padding: 10px;
-    }
-
-    td {
-        font-weight: 700;
-        text-align: center;
-    }
-    
-    
-    td:last-child {
-      text-align: center;
-    }
-
-
-    th {
-      border-bottom: 1px solid black;
-    }
-
-    /* th {
-      border-right: 1px solid black;
-    } */
-
-    /* th:first-child {
-      border-right: 1px solid black;
-    } */
-
-    tr:nth-child(odd) {
-        background-color: wheat;
-    }
-
-    tr:nth-child(even) {
-        background-color: whitesmoke; 
-    }
-
-    #cerrarPedido, #verPedidos {
-      background-color: red;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    #importe {
-      border: 1px solid black;
-      font-size: 22px;
-      width: 69.9%;
-      margin-left: 15%;
-      text-align: center;
-      font-weight: 700;
-      background-color: lightblue;
-    }
-
-    @media only screen and (max-width: 900px) {
-      #importe {
-        border: 1px solid black;
-        font-size: 22px;
-        width: 71%;
-        margin-left: 15%;
-        text-align: center;
-        font-weight: 700;
-        background-color: lightblue;
-      }
-    
-  }
-  </style> -->
   <style>
     h1 {
       text-align: center;
@@ -137,8 +55,19 @@
       background-color: whitesmoke;
     }
 
-    #cerrarPedido,
     #verPedidos {
+      background-color: rgb(138, 197, 20);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    #cerrarPedido {
       background-color: red;
       color: white;
       padding: 10px 20px;
@@ -168,6 +97,10 @@
       gap: 10px; /* Espacio entre los botones */
       margin-top: 20px;
       font-size: 20px;
+    }
+
+    .papelera {
+      padding-top: 2px;
     }
 
     @media only screen and (max-width: 900px) {
@@ -204,7 +137,7 @@
           <td th:text="${lineaPedido.precio + ' €'}">€</td>
           <td>
             <a th:href="@{/lineaPedido/borrar/{id}
-(id=${lineaPedido.id})}">Borrar</a>
+(id=${lineaPedido.id})}"><img src="/images/inicio/papelera.png" width="30px" height="30px" class="papelera"></a>
           </td>
         </tr>
       </tbody>

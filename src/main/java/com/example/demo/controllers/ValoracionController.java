@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +39,7 @@ public class ValoracionController {
         model.addAttribute("listaValoracion",
                 valoracionService.obtenerPorUsuario(u));
         model.addAttribute("usuario", usuarioService.obtenerPorId(id));
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "valoracion/usuListView";
     }
 
@@ -46,6 +49,7 @@ public class ValoracionController {
         model.addAttribute("listaValoracion",
                 valoracionService.obtenerPorProducto(p));
         model.addAttribute("producto", productoService.obtenerPorId(id));
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "valoracion/prodListView";
     }
 
@@ -58,6 +62,7 @@ public class ValoracionController {
         model.addAttribute("listaUsuarios", usuarioService.obtenerTodos());
         model.addAttribute("listaProductos", productoService.obtenerTodos());
         model.addAttribute("producto", p);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "valoracion/valNewFormView";
     }
 
@@ -65,8 +70,10 @@ public class ValoracionController {
     public String showValoracionSubmit(@Valid Valoracion valoracion, BindingResult bindingResult, Model model) {
         if(!bindingResult.hasErrors()) {
             valoracionService.añadir(valoracion);
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
         }
         Long productoId = valoracion.getProducto().getId();
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "redirect:/valoraciones/producto/" + productoId;
     }
 

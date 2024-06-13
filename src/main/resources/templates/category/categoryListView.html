@@ -9,7 +9,7 @@
       h1 {
           text-align: center;
           font-size: 35px;
-          margin-bottom: 38px;
+          margin-bottom: 40px;
       }
 
       #info {
@@ -108,18 +108,27 @@
 </head>
 <body>
     <head th:replace="~{/fragment.html::cabecera}"></head>
-    <main class="usuario">
+    <main class="categoria">
         <h1>Categorías</h1>
         <table id="info">
           <thead class="thead-dark">
             <tr>
-              <th>ID</th><th>Nombre</th><th>Editar</th><th>Borrar</th>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Productos</th>
+              <th>Borrar</th>
           </thead>
           <tbody>
             <tr th:each="categoria : ${listaCategorias}">
               <td th:text="${categoria.id}">Id</td>
               <td th:text="${categoria.nombre}">nombre</td>
-              <td><a th:href="@{/categorias/edit/{id}(id=${categoria.id})}">Editar</a></td>        		
+              <td>
+                <ul>
+                  <li th:each="producto : ${productosPorCategoria[categoria.id]}">
+                    <span th:text="${producto.nombre}">Producto</span>
+                  </li>
+                </ul>
+              </td>
               <td><a th:href="@{/categorias/delete/{id}(id=${categoria.id})}">Borrar</a></td>        		
             </tr>
           </tbody>

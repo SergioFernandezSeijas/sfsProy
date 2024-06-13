@@ -39,7 +39,6 @@
                 <label>Puntuacion: <input type="number" id="puntuacion" th:field="*{puntuacion}" required/> </label><br />
                 <span id="mensajeError1" style="color:red; font-size: 17px;"></span> <br />
             </div>
-            <br>
             
             <label>Url: <input type="text" id="url" th:field="*{url}"/> </label><br />
 
@@ -55,7 +54,7 @@
             <input type="submit" value="Enviar" id="enviar"/>
         </form>
         <br>
-        <a th:href="@{/razas/}" id="volver">Volver</a><br />
+        <a th:href="@{/razas/}" id="volver">Volver</a>
     </main>
     <footer th:replace="~{/fragment2.html::piePagina}"></footer>
 </body>

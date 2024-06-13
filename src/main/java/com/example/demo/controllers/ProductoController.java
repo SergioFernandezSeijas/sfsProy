@@ -51,6 +51,7 @@ public class ProductoController {
     public String getNew(Model model) {
         model.addAttribute("productoForm", new Producto());
         model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "producto/newFormView";
     }
 
@@ -59,6 +60,7 @@ public class ProductoController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("productoForm", producto);
             model.addAttribute("error", "Errores en el formulario");
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "producto/newFormView";
         }
         try {
@@ -66,6 +68,7 @@ public class ProductoController {
         } catch (IllegalArgumentException e) {
             model.addAttribute("productoForm", producto);
             model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             model.addAttribute("error", e.getMessage());
             return "producto/newFormView";
         }

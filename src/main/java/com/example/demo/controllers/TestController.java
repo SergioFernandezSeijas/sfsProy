@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.time.Year;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class TestController {
     public String hacerTest(Model model) {
         List<Pregunta> preguntas = testService.obtenerPreguntas();
         model.addAttribute("preguntas", preguntas);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "test/testView";
     }
 
@@ -45,6 +47,7 @@ public class TestController {
         List<Raza> razasRecomendadas = testService.obtenerRazasRecomendadas(puntuacion);
         model.addAttribute("puntuacion", puntuacion);
         model.addAttribute("razasRecomendadas", razasRecomendadas);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
 
         request.getSession().setAttribute("puntuacionTest", puntuacion);
         // return "test/resultadoView";
@@ -53,10 +56,10 @@ public class TestController {
 
     @GetMapping("/resultados")
     public String mostrarResultados(Model model, HttpServletRequest request) {
-        // Recuperar la puntuación del test del localStorage
+        // Recuperar la puntuación del test del HttpSession
         Integer puntuacionTest = (Integer) request.getSession().getAttribute("puntuacionTest");
         if (puntuacionTest == null) {
-            // Si no hay puntuación en el localStorage, redirige al formulario del test
+            // Si no hay puntuación en el HttpSession, redirige al formulario del test
             return "redirect:/test/";
         }
 
@@ -65,6 +68,7 @@ public class TestController {
 
         model.addAttribute("puntuacion", puntuacionTest);
         model.addAttribute("razasRecomendadas", razasRecomendadas);
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
 
         return "test/resultadoView";
     }

@@ -39,9 +39,10 @@ public class RazaController {
         return "raza/listView";
     }
 
-     @GetMapping("/nuevo")
+    @GetMapping("/nuevo")
     public String getNew(Model model) {
         model.addAttribute("raza", new Raza());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "raza/newFormView";
     }
 
@@ -50,6 +51,7 @@ public class RazaController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("raza", raza);
             model.addAttribute("error", "Errores en el formulario");
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "raza/newFormView";
         }
         try {
@@ -57,6 +59,7 @@ public class RazaController {
         } catch (IllegalArgumentException e) {
             model.addAttribute("raza", raza);
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "raza/newFormView";
         }
         
@@ -84,28 +87,28 @@ public class RazaController {
     }
 
     //METODO IMPORTANTE
-    // @GetMapping("/detalle/{nombre}")
-    // public String showDogDetail(@PathVariable String nombre, Model model) {
-    //     Raza raza = razaService.obtenerPorNombre(nombre);
-    //     model.addAttribute("raza", raza);
-    //     model.addAttribute("anhoActual", "©" + Year.now().getValue());
-    //     return "raza/detallesRaza"; 
-    // }
-
     @GetMapping("/detalle/{nombre}")
-    public String showDogDetail(@PathVariable String nombre, Model model, HttpServletRequest request) {
+    public String showDogDetail(@PathVariable String nombre, Model model) {
         Raza raza = razaService.obtenerPorNombre(nombre);
         model.addAttribute("raza", raza);
-        
-        // Recupera la puntuación del test del localStorage
-        Integer puntuacionTest = (Integer) request.getSession().getAttribute("puntuacionTest");
-        if (puntuacionTest != null) {
-            model.addAttribute("puntuacion", puntuacionTest);
-        }
-
         model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "raza/detallesRaza"; 
     }
+
+    // @GetMapping("/detalle/{nombre}")
+    // public String showDogDetail(@PathVariable String nombre, Model model, HttpServletRequest request) {
+    //     Raza raza = razaService.obtenerPorNombre(nombre);
+    //     model.addAttribute("raza", raza);
+        
+    //     // Recupera la puntuación del test del HttpSession
+    //     Integer puntuacionTest = (Integer) request.getSession().getAttribute("puntuacionTest");
+    //     if (puntuacionTest != null) {
+    //         model.addAttribute("puntuacion", puntuacionTest);
+    //     }
+
+    //     model.addAttribute("anhoActual", "©" + Year.now().getValue());
+    //     return "raza/detallesRaza"; 
+    // }
 
 
     // public String getImageUrl(String razaNombre) {

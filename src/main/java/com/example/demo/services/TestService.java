@@ -39,18 +39,21 @@ public class TestService {
                 .sum();
     }
 
-    // //Suponemos que las respuestas se encuentran en la bd
-    // public int calcularPuntuacion(List<Long> respuestasIds) {
-    //     return respuestaRepository.findAllById(respuestasIds).stream()
-    //             .mapToInt(Respuesta::getValor)
-    //             .sum();
-    // }
+    
 
     public List<Raza> obtenerRazasRecomendadas(int puntuacion) {
         return razaRepository.findAll().stream()
                 .filter(raza -> raza.getPuntuacion() >= puntuacion - 2 && raza.getPuntuacion() <= puntuacion + 2)
                 .collect(Collectors.toList());
     }
+
+
+    // //Suponemos que las respuestas se encuentran en la bd
+    // public int calcularPuntuacion(List<Long> respuestasIds) {
+    //     return respuestaRepository.findAllById(respuestasIds).stream()
+    //             .mapToInt(Respuesta::getValor)
+    //             .sum();
+    // }
 
     // public List<Pregunta> obtenerPreguntas() {
     //     return preguntaRepository.findAll();

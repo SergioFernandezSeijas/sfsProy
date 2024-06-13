@@ -39,6 +39,7 @@ public class UsuarioController {
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("usuarioForm", new Usuario());
+        model.addAttribute("anhoActual", "©" + Year.now().getValue());
         return "usuario/newFormView";
     }
 
@@ -52,6 +53,7 @@ public class UsuarioController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("usuarioForm", usuario);
             model.addAttribute("error", "Errores en el formulario");
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "usuario/newFormView";
         }
         try {
@@ -59,6 +61,7 @@ public class UsuarioController {
         } catch (IllegalArgumentException e) {
             model.addAttribute("usuarioForm", usuario);
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "usuario/newFormView";
         }
         return "redirect:/usuario/";
@@ -98,6 +101,7 @@ public class UsuarioController {
         if (userDetails != null) {
             Usuario usuarioConectado = usuarioService.obtenerPorEmail(userDetails.getUsername());
             model.addAttribute("usuarioForm", usuarioConectado);
+            model.addAttribute("anhoActual", "©" + Year.now().getValue());
             return "usuario/editarPerfilView";
         }
         return "redirect:/login";

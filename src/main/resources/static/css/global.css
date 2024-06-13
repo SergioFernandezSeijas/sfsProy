@@ -18,6 +18,27 @@
     font-size: 20px;
 }
 
+.categoria {
+    overflow: hidden;
+    min-height: 68.2vh;
+    margin-top: 22vh;
+    font-size: 20px;
+}
+
+.comentarios {
+    overflow: hidden;
+    min-height: 68.2vh;
+    margin-top: 22vh;
+    font-size: 20px;
+}
+
+.user {
+    overflow: hidden;
+    min-height: 68.2vh;
+    margin-top: 22vh;
+    font-size: 20px;
+}
+
 #nuevoUsuario {
     background-color: blue;
     color: white;
@@ -47,7 +68,7 @@
 
 .valProducto {
     overflow: hidden;
-    min-height: 68vh;
+    min-height: 68.1vh;
     margin-top: 22vh;
 }
 
@@ -65,7 +86,7 @@
 
 .linPed {
     overflow: hidden;
-    min-height: 68vh;
+    min-height: 68.1vh;
     margin-top: 22vh;
 }
 

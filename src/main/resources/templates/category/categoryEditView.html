@@ -12,7 +12,7 @@
       <form method="post" action="#" th:action="@{/categorias/edit/submit}"
               th:object="${categoriaForm}">
               <label>Id:<input type="text" id="id" th:field="*{id}" readonly/> </label><br/>
-              <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+              <label>Nombre:<input type="text" id="nombre" th:field="*{nombre}" readonly/></label><br/>
               <input type="submit" value="Enviar" id="enviar"/>
       </form>
       <a th:href="@{/categorias/}" id="volver">Volver</a><br />

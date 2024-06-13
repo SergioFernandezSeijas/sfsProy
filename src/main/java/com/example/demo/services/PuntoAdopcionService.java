@@ -35,7 +35,7 @@ public class PuntoAdopcionService {
 
     public boolean cargarAdoptaDesdeFichero() {
         List<String> lineas;
-        String[] partes = new String[3];
+        String[] partes;
         try {
             Path path = Paths.get("provincias.csv");
             System.out.println("Ruta del archivo CSV: " + path);
